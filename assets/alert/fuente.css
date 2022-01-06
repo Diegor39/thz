@@ -1,0 +1,46 @@
+h1{
+    font-family: 'Open Sans', sans-serif;
+    color: #F564A9;
+    font-size: 3.5rem !important;
+}
+h2{
+    font-family: 'Open Sans', sans-serif;
+    color: #F564A9;
+    font-size: 2.5rem !important;
+}
+h3{
+    font-family: 'Open Sans', sans-serif;
+    color: #F564A9;
+}
+
+span{
+    
+    color: #F6EFEE;
+    font-size: 1.25rem;
+}
+a{
+    
+    color: #F6EFEE;
+}
+.btn-outline-success{
+    background-color: none !important;
+    color: #F564A9 !important;
+    border-color: #F564A9 !important;
+}
+.btn-outline-success:hover, .btn-outline-success:active, .btn-outline-success:visited {
+    background-color: #F564A9 !important;
+    color: #F6EFEE !important;
+}
+.btn-outline-primary{
+    background-color: none !important;
+    color: #111D4A !important;
+    border-color: #111D4A !important;
+}
+.btn-outline-primary:hover, .btn-outline-primary:active, .btn-outline-primary:visited {
+    background-color: #111D4A !important;
+    color: #F6EFEE !important;
+}
+
+.cardho:hover{
+    background-color: #FBC5E0;
+}
