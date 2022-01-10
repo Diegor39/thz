@@ -83,20 +83,20 @@
         <div style="padding-top:5.1rem; padding-bottom: 6.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
             <div>
                 <h1>Create a Givaway</h1></br></br>
-                <div>
+                <div id="1">
                     <span>What are you giving away</span></br></br>
-                    <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Thankz Tokens</button>
-                    <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Somethings Else</button></br></br></br></br>
+                    <button id="btn2.1" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Thankz Tokens</button>
+                    <button id="btn2.2" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Somethings Else</button></br></br></br></br>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div id="2.1" class="col" style="display: none;">
                         <h3>Thankz Token</h3></br></br>
                         <span>Thankz Balance: 400</span></br></br>
                         <label>How many?</label>
                         <input class="form-control" type="text" name="" id="" placeholder="" style="width: 40%;"></br></br>
-                        <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next</button>
+                        <button id="btn21" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next</button>
                     </div>
-                    <div class="col">
+                    <div id="2.2" class="col" style="display: none;">
                         <div>
                             <h3>Something Else</h3></br></br>
                             <label>Select a token in your wallet</label>
@@ -108,11 +108,11 @@
         
                         </div>
                         <span>Selected Token:</span></br></br>
-                        <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next</button>
+                        <button id="btn22" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next</button>
                     </div>
                 </div>
 
-                <div>
+                <div id="3" style="display: none;">
                     <span>Selected Token:</span></br></br>
                     <div>
                         <label>Givaway name:</label>
@@ -136,18 +136,7 @@
     </div>
    
 
-    <div style="background-color: #37392E; padding-bottom: 2.1rem;">
-        <div class="row" style="padding-top:2.1rem;  padding-left: 3.5rem; padding-right: 3.5rem;">
-            
-            <span >FAQ</span>
-            <ion-icon size="large" name="logo-twitter" style="color: #F6EFEE; margin-left: 3rem;";></ion-icon>
-            <ion-icon size="large" name="logo-discord" style="color: #F6EFEE; margin-left: 3rem;";></ion-icon>
-            
-        </div>
-        <div style="margin-top: 2.1rem; padding-left: 2.5rem;padding-right: 3.5rem;">
-            <p style="color: #F564A9;">Thankz all rigths reserved 2022</p>
-        </div>   
-    </div>
+    <iframe src="footer.html" frameborder="0" style="width: 100%;height: 170px;"></iframe>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -156,5 +145,50 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        const targetDiv = document.getElementById("1");
+        const targetDiv21 = document.getElementById("2.1");
+        const targetDiv22 = document.getElementById("2.2");
+        const targetDiv3 = document.getElementById("3");
+        const btn = document.getElementById("btn2.1");
+        const btn2 = document.getElementById("btn2.2");
+        const btn21 = document.getElementById("btn21");
+        const btn22 = document.getElementById("btn22");
+        btn.onclick = function () {
+            if (targetDiv.style.display !== "none") {
+                targetDiv.style.display = "none";
+                targetDiv21.style.display = "block";
+            } else {
+                targetDiv.style.display = "block";
+                targetDiv21.style.display = "none";
+            }
+        };
+        btn2.onclick = function () {
+            if (targetDiv.style.display !== "none") {
+                targetDiv.style.display = "none";
+                targetDiv22.style.display = "block";
+            } else {
+                targetDiv.style.display = "block";
+                targetDiv22.style.display = "none";
+            }
+        };
+        btn21.onclick = function () {
+            if (targetDiv21.style.display !== "none") {
+                targetDiv21.style.display = "none";
+                targetDiv3.style.display = "block";
+            } else {
+                targetDiv21.style.display = "block";
+                targetDiv3.style.display = "none";
+            }
+        };
+        btn22.onclick = function () {
+            if (targetDiv22.style.display !== "none") {
+                targetDiv22.style.display = "none";
+                targetDiv3.style.display = "block";
+            } else {
+                targetDiv22.style.display = "block";
+                targetDiv3.style.display = "none";
+            }
+        };    </script>
   </body>
 </html>

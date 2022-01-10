@@ -83,7 +83,7 @@
         <div style="padding-top:5.1rem; padding-bottom: 6.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
             <div>
                 <h1>Create a Raffle</h1></br></br>
-                <div>
+                <div id="first">
                     <div>
                         <span>Select a token in your wallet</span></br></br>
                         <div >
@@ -134,11 +134,13 @@
                         </div>
                         
                     </div>
-                </div></br></br>
-                <span>Selected Token: KT1PBQLQ1QH9fat1t8wQ7dH2pKMUBCpv8vMn</span></br></br>
-                <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next</button>
+                    <span>Selected Token: KT1PBQLQ1QH9fat1t8wQ7dH2pKMUBCpv8vMn</span></br></br>
+                </br></br>
+                <button id="toggle" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next</button>
+                </div>
+                
 
-                <div>
+                <div id="second" style="display: none;">
                     <span>Selected Token: KT1PBQLQ1QH9fat1t8wQ7dH2pKMUBCpv8vMn</span></br></br>
                     <div class="row">
                         <div class="col-3">
@@ -195,5 +197,20 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        const targetDiv = document.getElementById("first");
+        const targetDiv2 = document.getElementById("second");
+        const btn = document.getElementById("toggle");
+        btn.onclick = function () {
+            if (targetDiv.style.display !== "none") {
+                targetDiv.style.display = "none";
+                targetDiv2.style.display = "block";
+            } else {
+                targetDiv.style.display = "block";
+                targetDiv2.style.display = "none";
+            }
+        };
+    </script>
+    
   </body>
 </html>
