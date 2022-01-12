@@ -15,16 +15,24 @@ function traerDatos(){
             res.innerHTML = '';
             
             for(let item of datos){
-                console.log(item.creators);
+                
+                
                 res.innerHTML += `
-                <div class="card cardho" style="width: 190px;height: 300px;">
-                    <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1LHHLso8zQWQWg1HUukajdxxbkGfNoHjh6/0/7/2507/artifact.png" alt="Card image cap">
+
+                <div tabindex="0" class="card cardho" style="width: auto;height: auto;" onclick='document.getElementById("resToken").innerHTML = "${item.name}";'>
+                    <img  class="card-img-top" src="https://cloudflare-ipfs.com/ipfs/${item.artifact_uri}" alt="Card image cap">
                     <div class="card-body">
                         <p>${item.name}</p>
                     </div>
                 </div> `
+                var nombre = document.getElementById("resToken").value;
+                document.getElementById("resToken2").innerHTML = nombre;
+                document.getElementById("resToken3").innerHTML = nombre;
+                
             }
+            
             
         }
     }
 }
+

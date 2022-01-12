@@ -33,14 +33,20 @@ a{
 }
 .btn-outline-primary{
     background-color: none !important;
-    color: #111D4A !important;
-    border-color: #111D4A !important;
+    color: #5ceef3 !important;
+    border-color: #5ceef3 !important;
 }
-.btn-outline-primary:hover, .btn-outline-primary:active, .btn-outline-primary:visited {
-    background-color: #111D4A !important;
-    color: #F6EFEE !important;
+.btn-outline-primary:hover, .btn-outline-primary:active,.btn-outline-primary:focus, .btn-outline-primary:visited {
+    background-color: #5ceef3 !important;
+    color: #37392E !important;
 }
 
 .cardho:hover{
     background-color: #FBC5E0;
+    
+}
+.cardho:focus{
+    background-color: #FBC5E0;
+    border-width: 2px;
+    border-color: #F564A9;
 }
