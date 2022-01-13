@@ -19,7 +19,7 @@ function traerDatos(){
                 
                 res.innerHTML += `
 
-                <div tabindex="0" class="card cardho" style="width: auto;height: auto;" onclick='document.getElementById("resToken").innerHTML = "${item.name}";'>
+                <div tabindex="0" class="card cardho" style="max-width: 13%;" onclick='document.getElementById("resToken").innerHTML = "${item.name}";'>
                     <img  class="card-img-top" src="https://cloudflare-ipfs.com/ipfs/${item.artifact_uri}" alt="Card image cap">
                     <div class="card-body">
                         <p>${item.name}</p>
