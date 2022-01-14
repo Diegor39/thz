@@ -97,30 +97,27 @@
                 
 
                 <div id="second" style="display: none;">
-                    <span>Selected Token: <h1 id="resToken2"></h1></span></br></br>
+                    <span>Selected Token: <h1 id="resToken2">fvvf</h1></span></br></br>
                     <div >
                         <div >
                             <div class="card" style="max-width: 20%;">
                                 <img  class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1LHHLso8zQWQWg1HUukajdxxbkGfNoHjh6/0/7/2507/artifact.png" alt="Card image cap">
                                 <div class="card-body">
-                                    <p id="resToken3">Nombre</p>
+                                    <p id="resToken3"></p>
                                 </div>
                             </div></br>
                         </div>
                         <div >
                             <div>
                                 <label>Raffle name:</label>
-                                <input class="form-control" type="text" name="" id="" placeholder="Name" style="width: 20%;"></br></br>
+                                <input class="form-control" type="text" name="" id="Rafflename" placeholder="Name" style="width: 20%;"></br></br>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Unlimited
-                                    </label>
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">     
                                 </div></br></br>
                                 <label>Number of participants:</label>
-                                <input class="form-control" type="text" name="" id="" placeholder="Name" style="width: 20%;"></br></br>
+                                <input class="form-control" type="number" name="" id="Rafflenumber" placeholder="Number" style="width: 20%;"></br></br>
                                 <label>How long will it last?</label>
-                                <div class="row">
+                                <div class="row" style="margin-left: 0.1rem;">
                                     <button style="margin-left: 0rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">1 hour</button>
                                     <button style="margin-left: 1rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">6 hours</button>
                                     <button style="margin-left: 1rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">12 hours</button>
@@ -129,12 +126,28 @@
                                     <button style="margin-left: 1rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">1 week</button>
                                 </div></br></br>
                                 <label>Entry cost</label>
-                                <input class="form-control" type="number" name="" id="" placeholder="Cost in XTZ" style="width: 20%;"></br></br>
+                                <input class="form-control" type="number" name="" id="Rafflecost" placeholder="Cost in XTZ" style="width: 20%;"></br></br>
                             </div>
 
                         </div>
                     </div> 
                     <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Start</button>
+                </div>
+
+                <div id="3" >
+                    <span>Summary</span></br></br>
+                    <div>
+                        <span>Selected Token:</span></br>
+                        <span>Selected Wallet: </span></br></br>
+                        <span>Raffle Name</span></br></br>
+                        <span id="Rname"></span></br></br>
+                        <span>Raffle Participants</span></br></br>
+                        <span id="Rnumber"></span></br></br>
+                        <span>Total:</span></br></br>
+                        <span id="Rcost"></span></br></br>
+    
+                    </div>
+                    <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Send Airdrop</button>
                 </div>
             </div>   
         </div>
@@ -175,6 +188,20 @@
                 targetDiv2.style.display = "none";
             }
         };
+    </script>
+    <script>
+        var nombre = document.getElementById("resToken").value;
+        document.getElementById("resToken2").value = nombre;
+        document.getElementById("resToken3").value = nombre;
+
+        var Rafflename = document.getElementById('Rafflename').value;
+        var Rafflenumber = document.getElementById('Rafflenumber').value;
+        var Rafflecost = document.getElementById('Rafflecost').value;
+
+        document.getElementById("Rname").value = Rafflename;
+        document.getElementById("Rnumber").value = Rafflenumber;
+        document.getElementById("Rcost").value = Rafflecost;
+
     </script>
     
   </body>

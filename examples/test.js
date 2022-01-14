@@ -25,12 +25,9 @@ function traerDatos(){
                         <p>${item.name}</p>
                     </div>
                 </div> `
-                var nombre = document.getElementById("resToken").value;
-                document.getElementById("resToken2").innerHTML = nombre;
-                document.getElementById("resToken3").innerHTML = nombre;
+                
                 
             }
-            
             
         }
     }
