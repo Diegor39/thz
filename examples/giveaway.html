@@ -91,17 +91,19 @@
                     </div>
                 </br>
                     <span>Selected Token: <h1 id="resToken"></h1></span> 
+                    <p id="resImg" ></p>
                 </br></br>
-                <button id="toggle" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next</button>
+                <button id="toggle" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next Step</button>
                 </div>
                 
 
                 <div id="second" style="display: none;">
-                    <span>Selected Token: <h1 id="resToken2">fvvf</h1></span></br></br>
+                    <span>Selected Token: <h1 id="resToken2"></h1></span></br></br>
+                    
                     <div >
                         <div >
                             <div class="card" style="max-width: 20%;">
-                                <img  class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1LHHLso8zQWQWg1HUukajdxxbkGfNoHjh6/0/7/2507/artifact.png" alt="Card image cap">
+                                <img id="imgRes2"  class="card-img-top" src="" alt="Card image cap">
                                 <div class="card-body">
                                     <p id="resToken3"></p>
                                 </div>
@@ -109,45 +111,70 @@
                         </div>
                         <div >
                             <div>
-                                <label>Raffle name:</label>
-                                <input class="form-control" type="text" name="" id="Rafflename" placeholder="Name" style="width: 20%;"></br></br>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">     
-                                </div></br></br>
-                                <label>Number of participants:</label>
-                                <input class="form-control" type="number" name="" id="Rafflenumber" placeholder="Number" style="width: 20%;"></br></br>
-                                <label>How long will it last?</label>
-                                <div class="row" style="margin-left: 0.1rem;">
-                                    <button style="margin-left: 0rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">1 hour</button>
-                                    <button style="margin-left: 1rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">6 hours</button>
-                                    <button style="margin-left: 1rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">12 hours</button>
-                                    <button style="margin-left: 1rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">24 hours</button>
-                                    <button style="margin-left: 1rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">48 hours</button>
-                                    <button style="margin-left: 1rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">1 week</button>
-                                </div></br></br>
-                                <label>Entry cost</label>
-                                <input class="form-control" type="number" name="" id="Rafflecost" placeholder="Cost in XTZ" style="width: 20%;"></br></br>
+                                <form action="" method="get">
+                                    <label>Raffle name:</label>
+                                    <input class="form-control" type="text" name="" id="Rafflename" placeholder="Name" style="width: 20%;"></br></br>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">     
+                                    </div></br></br>
+                                    <label>Number of participants:</label>
+                                    <input class="form-control" type="number" name="" id="Rafflenumber" placeholder="Number" style="width: 20%;"></br></br>
+                                    <label>How long will it last?</label>
+                                    <div class="row" style="margin-left: 0.1rem;">
+                                        <button style="margin-left: 0rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">1 hour</button>
+                                        <button style="margin-left: 1rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">6 hours</button>
+                                        <button style="margin-left: 1rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">12 hours</button>
+                                        <button style="margin-left: 1rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">24 hours</button>
+                                        <button style="margin-left: 1rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">48 hours</button>
+                                        <button style="margin-left: 1rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">1 week</button>
+                                    </div></br></br>
+                                    <label>Entry cost</label>
+                                    <input class="form-control" type="number" name="" id="Rafflecost" placeholder="Cost in XTZ" style="width: 20%;"></br></br>
+                                </form> 
                             </div>
 
                         </div>
                     </div> 
-                    <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Start</button>
+                    <button id="btnStart" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#exampleModalCenter">Next Step</button>
                 </div>
 
-                <div id="3" >
-                    <span>Summary</span></br></br>
-                    <div>
-                        <span>Selected Token:</span></br>
-                        <span>Selected Wallet: </span></br></br>
-                        <span>Raffle Name</span></br></br>
-                        <span id="Rname"></span></br></br>
-                        <span>Raffle Participants</span></br></br>
-                        <span id="Rnumber"></span></br></br>
-                        <span>Total:</span></br></br>
-                        <span id="Rcost"></span></br></br>
-    
+
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">Summary</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                <form action="summary.html" method="get">
+                                    <span>Raffle Name</span></br></br>
+                                    <input id="Rname" name="Rname"></input></br></br>
+                                    <span>Token</span></br></br>
+                                    <input id="sToken" name="sToken"></input></br></br>
+                                    <span>Raffle Participants</span></br></br>
+                                    <input id="Rnumber" name="Rnumber"></input></br></br>
+                                    <span>Total:</span></br></br>
+                                    <input id="Rcost" name="Rcost"></input></br></br>
+                                    
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Start Raffle</button>
+                        </form>
+                        </div>
+                      </div>
                     </div>
-                    <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Send Airdrop</button>
+                  </div>
+
+
+                <div id="3" >
+                    
+                    
                 </div>
             </div>   
         </div>
@@ -169,6 +196,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
     <script src="test.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -179,29 +207,35 @@
         const targetDiv = document.getElementById("first");
         const targetDiv2 = document.getElementById("second");
         const btn = document.getElementById("toggle");
+        const btnStar = document.getElementById("btnStart");
         btn.onclick = function () {
             if (targetDiv.style.display !== "none") {
                 targetDiv.style.display = "none";
                 targetDiv2.style.display = "block";
+                nombre = document.getElementById("resToken").textContent;
+                imgToken = document.getElementById("resImg").textContent;
+
+                document.getElementById("resToken2").textContent = nombre;
+                document.getElementById("resToken3").textContent = nombre;
+                document.getElementById("imgRes2").src = imgToken;
             } else {
                 targetDiv.style.display = "block";
                 targetDiv2.style.display = "none";
             }
         };
-    </script>
-    <script>
-        var nombre = document.getElementById("resToken").value;
-        document.getElementById("resToken2").value = nombre;
-        document.getElementById("resToken3").value = nombre;
 
-        var Rafflename = document.getElementById('Rafflename').value;
-        var Rafflenumber = document.getElementById('Rafflenumber').value;
-        var Rafflecost = document.getElementById('Rafflecost').value;
+        btnStar.onclick = function () {
+            Rafflename = document.getElementById('Rafflename').value;
+            Rafflenumber = document.getElementById('Rafflenumber').value;
+            Rafflecost = document.getElementById('Rafflecost').value;
+            nombre = document.getElementById("resToken").textContent;
 
-        document.getElementById("Rname").value = Rafflename;
-        document.getElementById("Rnumber").value = Rafflenumber;
-        document.getElementById("Rcost").value = Rafflecost;
-
+            document.getElementById("Rname").value = Rafflename;
+            document.getElementById("Rnumber").value = Rafflenumber;
+            document.getElementById("Rcost").value = Rafflecost;
+            document.getElementById("sToken").value = nombre;
+        };
+        
     </script>
     
   </body>

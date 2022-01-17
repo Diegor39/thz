@@ -1,4 +1,5 @@
 
+
 document.querySelector('#boton').addEventListener('click',traerDatos());
 
 function traerDatos(){
@@ -19,8 +20,9 @@ function traerDatos(){
                 
                 res.innerHTML += `
 
-                <div tabindex="0" class="card cardho" style="max-width: 13%;" onclick='document.getElementById("resToken").innerHTML = "${item.name}";'>
-                    <img  class="card-img-top" src="https://cloudflare-ipfs.com/ipfs/${item.artifact_uri}" alt="Card image cap">
+                <div tabindex="0" class="card cardho" style="max-width: 13%;" onclick='document.getElementById("resToken").innerHTML = "${item.name}"; document.getElementById("resImg").innerHTML = "https://cloudflare-ipfs.com/ipfs/${item.artifact_uri}"'>
+                    <img class="card-img-top" src="https://cloudflare-ipfs.com/ipfs/${item.artifact_uri}" alt="Card image cap">
+                    
                     <div class="card-body">
                         <p>${item.name}</p>
                     </div>
@@ -32,4 +34,6 @@ function traerDatos(){
         }
     }
 }
+
+
 
