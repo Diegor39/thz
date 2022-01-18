@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Raffle 1",
+        "creator": "Jupiter",
+        "tokenName": "Moon",
+        "tokenURL": "https://test.com",
+        "maxParticpants": "2",
+        "particpants": "1",
+        "cost": "2.4"
+    }
+    
+]

@@ -90,15 +90,15 @@
                         
                     </div>
                 </br>
-                    <span>Selected Token: <h1 id="resToken"></h1></span> 
-                    <p id="resImg" ></p>
+                    <span> <h1 id="resToken" style="display: none;"></h1></span> 
+                    <p id="resImg" style="display: none;"></p>
                 </br></br>
                 <button id="toggle" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next Step</button>
                 </div>
                 
 
                 <div id="second" style="display: none;">
-                    <span>Selected Token: <h1 id="resToken2"></h1></span></br></br>
+                    <span>Selected Token: <h1 id="resToken2" style="display: none;"></h1></span></br></br>
                     
                     <div >
                         <div >
@@ -143,22 +143,26 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle">Summary</h5>
+                          <h5 style="color: #37392E;" class="modal-title" id="exampleModalLongTitle">Summary</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
                         <div class="modal-body">
                             <div>
-                                <form action="summary.html" method="get">
-                                    <span>Raffle Name</span></br></br>
-                                    <input id="Rname" name="Rname"></input></br></br>
-                                    <span>Token</span></br></br>
-                                    <input id="sToken" name="sToken"></input></br></br>
-                                    <span>Raffle Participants</span></br></br>
-                                    <input id="Rnumber" name="Rnumber"></input></br></br>
-                                    <span>Total:</span></br></br>
-                                    <input id="Rcost" name="Rcost"></input></br></br>
+                                <form action="" method="get">
+                                    <label style="color: #37392E;">Raffle Name</label>
+                                    <p id="Rname2" style="color: #37392E;"></p></br>
+                                    <input id="Rname" name="Rname" style="display: none;"></input>
+                                    <label style="color: #37392E;" style="display: none;">Token</label>
+                                    <input id="sToken" name="sToken"style="display: none;"></input>
+                                    <p id="sToken2" style="color: #37392E;"></p></br>
+                                    <label style="color: #37392E;">Raffle Participants</label>
+                                    <input id="Rnumber" name="Rnumber" style="display: none;"></input>
+                                    <p id="Rnumber2" style="color: #37392E;"></p></br>
+                                    <label style="color: #37392E;">Total:</label>
+                                    <input id="Rcost" name="Rcost" style="display: none;"></input>
+                                    <p id="Rcost2" style="color: #37392E;"></p></br>
                                     
                             </div>
                         </div>
@@ -234,6 +238,10 @@
             document.getElementById("Rnumber").value = Rafflenumber;
             document.getElementById("Rcost").value = Rafflecost;
             document.getElementById("sToken").value = nombre;
+            document.getElementById("Rname2").textContent = Rafflename;
+            document.getElementById("Rnumber2").textContent = Rafflenumber;
+            document.getElementById("Rcost2").textContent = Rafflecost;
+            document.getElementById("sToken2").textContent = nombre;
         };
         
     </script>
