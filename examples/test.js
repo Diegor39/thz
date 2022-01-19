@@ -20,7 +20,7 @@ function traerDatos(){
                 
                 res.innerHTML += `
 
-                <div tabindex="0" class="card cardho" style="max-width: 13%;" onclick='document.getElementById("resToken").innerHTML = "${item.name}"; document.getElementById("resImg").innerHTML = "https://cloudflare-ipfs.com/ipfs/${item.artifact_uri}"'>
+                <div tabindex="0" class="card cardho" style="max-width: 13%;" onclick='document.getElementById("resToken").innerHTML = "${item.name}"; document.getElementById("resImg").innerHTML = "https://cloudflare-ipfs.com/ipfs/${item.artifact_uri}"; document.getElementById("toggle").style.display = "block";'>
                     <img class="card-img-top" src="https://cloudflare-ipfs.com/ipfs/${item.artifact_uri}" alt="Card image cap">
                     
                     <div class="card-body">
