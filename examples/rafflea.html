@@ -65,13 +65,20 @@
             <li class="nav-item active">
               <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
             </li>
-            <a class="nav-item nav-link" href="#">Fans</a>
-            <a class="nav-item nav-link" href="#">Communities </a>
+            <a class="nav-item nav-link" href="fans.html">Fans</a>
+            <a class="nav-item nav-link" href="communities.html">Communities </a>
           </ul>
           <a class="nav-item nav-link" style="color: white;">Thankz Balance: 100</a>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sync</button>
+          <button id="requestPermission" class="btn btn-outline-success my-2 my-sm-0" type="submit">Sync</button>
         </div>
     </nav>
+      <center>
+        <span style="font-size: 5px;" style="display: none;">
+          <span id="activeAccount"></span>
+          <span id="activeAccountNetwork" style="display: none;"></span>
+          <span id="activeAccountTransport" style="display: none;"></span>
+        </span>
+      </center>
     
     <div >
         <div style="padding-top:5.1rem; padding-bottom: 6.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">

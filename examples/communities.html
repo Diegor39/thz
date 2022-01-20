@@ -27,6 +27,7 @@
             <a class="nav-link" href="home.html">Home </a>
             <a class="nav-item nav-link" href="fans.html">Fans </a>
             <li class="nav-item active"><a class="nav-item nav-link" href="communities.html">Communities <span class="sr-only">(current)</span></a></li>
+            <center><li class="nav-item active"><a class="nav-item nav-link" id="activeAccount"></a></li></center>
           </ul>
           <a class="nav-item nav-link" style="color: white;">Thankz Balance: 100</a>
           <button id="requestPermission" class="btn btn-outline-success my-2 my-sm-0" type="submit">Sync</button>
@@ -39,19 +40,60 @@
           <span id="activeAccountTransport" style="display: none;"></span>
         </span>
       </center>
-        <div class="row" style="padding-top:5.1rem; padding-bottom: 6.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
+        <div class="row" style="padding-top:5.1rem; padding-bottom: 3.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
             <div class="col">
                 <h1>Communities</h1>
-                <span>Thankz helps you give back to your fans and favorite artists.</span></br></br></br>
-                <button onclick="window.location.href='rafflea.html'" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Create a Raffle</button>
-                <button onclick="window.location.href='raffle.html'" style="border-radius: 5rem; margin-left: 1rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Create a Givaway</button>
-                <button onclick="window.location.href='airdrop.html'" style="border-radius: 5rem; margin-left: 1rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Send Airdrops</button>
+                <span>Here is a list of all the communities you own at least one token.</span></br></br></br>
             </div>
             <div class="col" >
-                <center><img src="" alt="" style="width: 75%; margin-top: -3.5rem;"></center>
+                <center><img src="/assets/fondos/undraw_meet_the_team_re_4h08.svg" alt="" style="width: 55%; margin-top: -3.5rem;"></center>
             </div>
         </div>       
     </div>
+
+    <div id="2" style="padding-bottom: 6.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
+        <h3>Your Communities</h3></br>
+        <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Select</th>
+                <th scope="col">Wallet</th>
+                <th scope="col">Username</th>
+                <th scope="col">Tez</th>
+                <th scope="col">Twitter</th>
+                <th scope="col">Collection</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th><input style="margin-left: 0rem;" class="form-check-input" type="checkbox" value="" id="defaultCheck1"></th>
+                <td>tz1UTntWEAGVyNXKRSMsV8RjBwuHEVjHNPdy</td>
+                <td>Mark</td>
+                <td>Otto.tez</td>
+                <td>@mdo</td>
+                <td>Unibotz</td>
+              </tr>
+              <tr>
+                <th><input style="margin-left: 0rem;" class="form-check-input" type="checkbox" value="" id="defaultCheck1"></th>
+                <td>tz1UTntWEAGVyNXKRSMsV8RjBwuHEVjHNPdy</td>
+                <td>Mark</td>
+                <td>Otto.tez</td>
+                <td>@mdo</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <th><input style="margin-left: 0rem;" class="form-check-input" type="checkbox" value="" id="defaultCheck1"></th>
+                <td>tz1UTntWEAGVyNXKRSMsV8RjBwuHEVjHNPdy</td>
+                <td>Mark</td>
+                <td>Otto.tez</td>
+                <td>@mdo</td>
+                <td>Unibotz</td>
+              </tr>
+            </tbody>
+        </table>
+
+    
+</div>
     
 
     <iframe src="footer.html" frameborder="0" style="width: 100%;height: 170px;"></iframe>

@@ -64,13 +64,21 @@
             <li class="nav-item active">
               <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
             </li>
-            <a class="nav-item nav-link" href="#">Fans</a>
-            <a class="nav-item nav-link" href="#">Communities </a>
+            <a class="nav-item nav-link" href="fans.html">Fans</a>
+            <a class="nav-item nav-link" href="communities.html">Communities </a>
           </ul>
           <a class="nav-item nav-link" style="color: white;">Thankz Balance: 100</a>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sync</button>
+          <button id="requestPermission" class="btn btn-outline-success my-2 my-sm-0" type="submit">Sync</button>
         </div>
     </nav>
+      <center>
+        <span style="font-size: 5px;" style="display: none;">
+          <span id="activeAccount"></span>
+          <span id="activeAccountNetwork" style="display: none;"></span>
+          <span id="activeAccountTransport" style="display: none;"></span>
+        </span>
+      </center>
+      
     <div>
         <div style="padding-top:5.1rem; padding-bottom: 6.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
             <div>
@@ -101,7 +109,7 @@
                             
                         </div>
                     </br>
-                        <span> <h1 id="resToken" ></h1></span> 
+                        <h1 id="resToken" ></h1>
                         <p id="resImg" ></p>
                     </br></br>
                     <button id="toggle" style="border-radius: 5rem; display: none;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next Step</button>
@@ -161,6 +169,7 @@
             if (targetDiv.style.display !== "none") {
                 targetDiv.style.display = "none";
                 targetDiv21.style.display = "block";
+                
             } else {
                 targetDiv.style.display = "block";
                 targetDiv21.style.display = "none";
@@ -170,13 +179,7 @@
             if (targetDiv.style.display !== "none") {
                 targetDiv.style.display = "none";
                 targetDiv22.style.display = "block";
-
-                nombre = document.getElementById("resToken").textContent;
-                imgToken = document.getElementById("resImg").textContent;
-
-                document.getElementById("resToken2").textContent = nombre;
-                document.getElementById("resToken3").textContent = nombre;
-                document.getElementById("imgRes2").src = imgToken;
+                
             } else {
                 targetDiv.style.display = "block";
                 targetDiv22.style.display = "none";
@@ -186,6 +189,7 @@
             if (targetDiv21.style.display !== "none") {
                 targetDiv21.style.display = "none";
                 targetDiv3.style.display = "block";
+                
             } else {
                 targetDiv21.style.display = "block";
                 targetDiv3.style.display = "none";
@@ -195,10 +199,18 @@
             if (targetDiv22.style.display !== "none") {
                 targetDiv22.style.display = "none";
                 targetDiv3.style.display = "block";
+
+                nombre = document.getElementById("resToken").textContent;
+                imgToken = document.getElementById("resImg").textContent;
+
+                document.getElementById("resToken2").textContent = nombre;
+                document.getElementById("resToken3").textContent = nombre;
+                document.getElementById("imgRes2").src = imgToken;
             } else {
                 targetDiv22.style.display = "block";
                 targetDiv3.style.display = "none";
             }
-        };    </script>
+        };    
+    </script>
   </body>
 </html>

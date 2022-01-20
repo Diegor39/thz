@@ -51,7 +51,12 @@ a{
     border-color: #F564A9;
 }
 .modal-content{
-    background-color: #fff3f9 !important;
+    background-color: #fff3f9 !important;   
+}
+.table-dark{
+    background-color: #37392E !important;
     
-    
+}
+.table-dark td, .table-dark th, .table-dark thead th{
+    border-color: #FBC5E0 !important; 
 }

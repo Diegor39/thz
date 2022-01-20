@@ -27,30 +27,72 @@
             <a class="nav-link" href="home.html">Home </a>
             <li class="nav-item active"><a class="nav-item nav-link" href="fans.html">Fans <span class="sr-only">(current)</span></a></li>
             <a class="nav-item nav-link" href="communities.html">Communities </a>
+            <center><li class="nav-item active"><a class="nav-item nav-link" id="activeAccount"></a></li></center>
           </ul>
           <a class="nav-item nav-link" style="color: white;">Thankz Balance: 100</a>
           <button id="requestPermission" class="btn btn-outline-success my-2 my-sm-0" type="submit">Sync</button>
         </div>
       </nav>
       <center>
-        <span style="font-size: 5px;" style="display: none;">
+        <span style="font-size: 5px; " style="display: none;">
           <span id="activeAccount"></span>
           <span id="activeAccountNetwork" style="display: none;"></span>
           <span id="activeAccountTransport" style="display: none;"></span>
         </span>
       </center>
-        <div class="row" style="padding-top:5.1rem; padding-bottom: 6.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
+        <div class="row" style="padding-top:5.1rem; padding-bottom: 2.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
             <div class="col">
                 <h1>Fans</h1>
-                <span>Thankz helps you give back to your fans and favorite artists.</span></br></br></br>
-                <button onclick="window.location.href='rafflea.html'" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Create a Raffle</button>
-                <button onclick="window.location.href='raffle.html'" style="border-radius: 5rem; margin-left: 1rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Create a Givaway</button>
-                <button onclick="window.location.href='airdrop.html'" style="border-radius: 5rem; margin-left: 1rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Send Airdrops</button>
+                <span>Here is a list of all the wallets that hold at least one of your tokens.</span></br></br></br>
             </div>
             <div class="col" >
-                <center><img src="" alt="" style="width: 75%; margin-top: -3.5rem;"></center>
+                <center><img src="/assets/fondos/undraw_fans_re_cri3.svg" alt="" style="width: 55%; margin-top: -3.5rem;"></center>
             </div>
         </div>       
+    </div>
+
+    <div id="2" style="padding-bottom: 6.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
+            <h3>Your fans</h3></br>
+            <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Select</th>
+                    <th scope="col">Wallet</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Tez</th>
+                    <th scope="col">Twitter</th>
+                    <th scope="col"># of your tokens</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th><input style="margin-left: 0rem;" class="form-check-input" type="checkbox" value="" id="defaultCheck1"></th>
+                    <td>tz1UTntWEAGVyNXKRSMsV8RjBwuHEVjHNPdy</td>
+                    <td>Mark</td>
+                    <td>Otto.tez</td>
+                    <td>@mdo</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <th><input style="margin-left: 0rem;" class="form-check-input" type="checkbox" value="" id="defaultCheck1"></th>
+                    <td>tz1UTntWEAGVyNXKRSMsV8RjBwuHEVjHNPdy</td>
+                    <td>Mark</td>
+                    <td>Otto.tez</td>
+                    <td>@mdo</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <th><input style="margin-left: 0rem;" class="form-check-input" type="checkbox" value="" id="defaultCheck1"></th>
+                    <td>tz1UTntWEAGVyNXKRSMsV8RjBwuHEVjHNPdy</td>
+                    <td>Mark</td>
+                    <td>Otto.tez</td>
+                    <td>@mdo</td>
+                    <td>5</td>
+                  </tr>
+                </tbody>
+            </table>
+
+        
     </div>
     
 
@@ -131,7 +173,7 @@
       <br /><br />
       <p style="margin-top: 1000px;">End of page</p>
   
-  </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
