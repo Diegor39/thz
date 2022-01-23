@@ -82,7 +82,7 @@
     <div>
         <div style="padding-top:5.1rem; padding-bottom: 6.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
             <div>
-                <h1>Create a Givaway</h1></br></br>
+                <h1>Create a Giveaway</h1></br></br>
                 <div id="1">
                     <span>What are you giving away</span></br></br>
                     <button id="btn2.1" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Thankz Tokens</button>
@@ -196,14 +196,15 @@
             }
         };
         btn22.onclick = function () {
+            nombre = document.getElementById("resToken").textContent;
+            imgToken = document.getElementById("resImg").textContent;
             if (targetDiv22.style.display !== "none") {
                 targetDiv22.style.display = "none";
                 targetDiv3.style.display = "block";
 
-                nombre = document.getElementById("resToken").textContent;
-                imgToken = document.getElementById("resImg").textContent;
+               
 
-                document.getElementById("resToken2").textContent = nombre;
+               
                 document.getElementById("resToken3").textContent = nombre;
                 document.getElementById("imgRes2").src = imgToken;
             } else {
