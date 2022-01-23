@@ -142,50 +142,47 @@
 
                         </div>
                     </div> 
-                    <button id="btnStart" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#exampleModalCenter">Next Step</button>
+                    <button id="btnStart" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit" >Next Step</button>
                 </div>
 
 
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 style="color: #37392E;" class="modal-title" id="exampleModalLongTitle">Summary</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
+                        
                         <div class="modal-body">
                             <div>
-                                <form action="" method="get">
-                                    <label style="color: #37392E;">Raffle Name</label>
-                                    <p id="Rname2" style="color: #37392E;"></p></br>
-                                    <input id="Rname" name="Rname" style="display: none;"></input>
-                                    <label style="color: #37392E;" style="display: none;">Token</label>
-                                    <input id="sToken" name="sToken"style="display: none;"></input>
-                                    <p id="sToken2" style="color: #37392E;"></p></br>
-                                    <label style="color: #37392E;">Raffle Participants</label>
-                                    <input id="Rnumber" name="Rnumber" style="display: none;"></input>
-                                    <p id="Rnumber2" style="color: #37392E;"></p></br>
-                                    <label style="color: #37392E;">Total:</label>
-                                    <input id="Rcost" name="Rcost" style="display: none;"></input>
-                                    <p id="Rcost2" style="color: #37392E;"></p></br>
+                               <h2>https://thankz/rafffle?sc=d193d71dus1oid13u9</h2>
                                     
                             </div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Start Raffle</button>
-                        </form>
+                          <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Share</button>
+                        
                         </div>
                       </div>
                     </div>
                   </div>
 
 
-                <div id="3" >
-                    
-                    
+                  <div id="3" style="display: none;">
+                    <span>Summary</span></br></br>
+                    <div>
+                        <label >Raffle Name:</label>
+                        <span id="Rname2" ></span></br>
+                        <input id="Rname" name="Rname" style="display: none;"></input>
+                        <label>Token:</label>
+                        <input id="sToken" name="sToken"style="display: none;"></input>
+                        <span id="sToken2" ></span></br>
+                        <label >Raffle Participants:</label>
+                        <input id="Rnumber" name="Rnumber" style="display: none;"></input>
+                        <span id="Rnumber2" ></span></br>
+                        <label >Total:</label>
+                        <input id="Rcost" name="Rcost" style="display: none;"></input>
+                        <span id="Rcost2" ></span></br>
+    
+                    </div>
+                    <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#exampleModalCenter">Start Raffle</button>
                 </div>
             </div>   
         </div>
@@ -217,6 +214,7 @@
     <script>
         const targetDiv = document.getElementById("first");
         const targetDiv2 = document.getElementById("second");
+        const targetDiv3 = document.getElementById("3");
         const btn = document.getElementById("toggle");
         const btnStar = document.getElementById("btnStart");
         btn.onclick = function () {
@@ -241,14 +239,25 @@
             Rafflecost = document.getElementById('Rafflecost').value;
             nombre = document.getElementById("resToken").textContent;
 
-            document.getElementById("Rname").value = Rafflename;
-            document.getElementById("Rnumber").value = Rafflenumber;
-            document.getElementById("Rcost").value = Rafflecost;
-            document.getElementById("sToken").value = nombre;
-            document.getElementById("Rname2").textContent = Rafflename;
-            document.getElementById("Rnumber2").textContent = Rafflenumber;
-            document.getElementById("Rcost2").textContent = Rafflecost;
-            document.getElementById("sToken2").textContent = nombre;
+            if (targetDiv2.style.display !== "none") {
+                targetDiv2.style.display = "none";
+                targetDiv3.style.display = "block";
+                
+
+                document.getElementById("Rname").value = Rafflename;
+                document.getElementById("Rnumber").value = Rafflenumber;
+                document.getElementById("Rcost").value = Rafflecost;
+                document.getElementById("sToken").value = nombre;
+                document.getElementById("Rname2").textContent = Rafflename;
+                document.getElementById("Rnumber2").textContent = Rafflenumber;
+                document.getElementById("Rcost2").textContent = Rafflecost;
+                document.getElementById("sToken2").textContent = nombre;
+            } else {
+                targetDiv2.style.display = "block";
+                targetDiv3.style.display = "none";
+            }
+
+           
         };
         
     </script>
