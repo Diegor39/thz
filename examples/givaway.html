@@ -68,7 +68,7 @@
             <a class="nav-item nav-link" href="communities.html">Communities </a>
           </ul>
           <a class="nav-item nav-link" style="color: white;">Thankz Balance: 100</a>
-          <button id="requestPermission" class="btn btn-outline-success my-2 my-sm-0" type="submit">Sync</button>
+          <button id="reset"  class="btn btn-outline-primary my-2 my-sm-0">Disconnect</button>
         </div>
     </nav>
       <center>
@@ -93,7 +93,7 @@
                         <h3>Thankz Token</h3></br></br>
                         <span>Thankz Balance: 400</span></br></br>
                         <label>How many?</label>
-                        <input class="form-control" type="text" name="" id="" placeholder="" style="width: 40%;"></br></br>
+                        <input class="form-control" type="number" name="" id="" placeholder="" style="width: 40%;"></br></br>
                         <button id="btn21" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next</button>
                     </div>
                     <div id="2.2" class="col" style="display: none;">
@@ -109,8 +109,8 @@
                             
                         </div>
                     </br>
-                        <h1 id="resToken" ></h1>
-                        <p id="resImg" ></p>
+                        <h1 id="resToken" style="display: none;"></h1>
+                        <p id="resImg" style="display: none;"></p>
                     </br></br>
                     <button id="toggle" style="border-radius: 5rem; display: none;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next Step</button>
                     </div>
@@ -139,8 +139,47 @@
     
                     </div>
                     
-                    <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Start</button>
+                    <button id="btn3" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next Step</button>
                 </div>
+
+                <div id="4" style="display: none;">
+                    <span>Summary</span></br></br>
+                    <div>
+                        <label >Raffle Name:</label>
+                        <span id="Rname2" ></span></br>
+                        <input id="Rname" name="Rname" style="display: none;"></input>
+                        <label>Token:</label>
+                        <input id="sToken" name="sToken"style="display: none;"></input>
+                        <span id="sToken2" ></span></br>
+                        <label >Raffle Participants:</label>
+                        <input id="Rnumber" name="Rnumber" style="display: none;"></input>
+                        <span id="Rnumber2" ></span></br>
+                        <label >Total:</label>
+                        <input id="Rcost" name="Rcost" style="display: none;"></input>
+                        <span id="Rcost2" ></span></br>
+    
+                    </div>
+                    <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#exampleModalCenter">Start Giveaway</button>
+                </div>
+
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        
+                        <div class="modal-body">
+                            <div>
+                               <h2>https://thankz/giveaway?sc=d193d71dus1oid13u9</h2>
+                                    
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Share</button>
+                        
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
             </div>   
         </div>
     </div>
@@ -161,10 +200,12 @@
         const targetDiv21 = document.getElementById("2.1");
         const targetDiv22 = document.getElementById("2.2");
         const targetDiv3 = document.getElementById("3");
+        const targetDiv4 = document.getElementById("4");
         const btn = document.getElementById("btn2.1");
         const btn2 = document.getElementById("btn2.2");
         const btn21 = document.getElementById("btn21");
         const btn22 = document.getElementById("toggle");
+        const btn3 = document.getElementById("btn3");
         btn.onclick = function () {
             if (targetDiv.style.display !== "none") {
                 targetDiv.style.display = "none";
@@ -211,7 +252,21 @@
                 targetDiv22.style.display = "block";
                 targetDiv3.style.display = "none";
             }
-        };    
+        };
+        btn3.onclick = function () {
+            nombre = document.getElementById("resToken").textContent;
+            imgToken = document.getElementById("resImg").textContent;
+            if (targetDiv3.style.display !== "none") {
+                targetDiv3.style.display = "none";
+                targetDiv4.style.display = "block";
+
+                document.getElementById("resToken3").textContent = nombre;
+                document.getElementById("imgRes2").src = imgToken;
+            } else {
+                targetDiv3.style.display = "block";
+                targetDiv4.style.display = "none";
+            }
+        };     
     </script>
   </body>
 </html>
