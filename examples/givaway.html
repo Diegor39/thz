@@ -68,7 +68,7 @@
             <a class="nav-item nav-link" href="communities.html">Communities </a>
           </ul>
           <a class="nav-item nav-link" style="color: white;">Thankz Balance: 100</a>
-          <button id="reset"  class="btn btn-outline-primary my-2 my-sm-0">Disconnect</button>
+          <button onclick="window.location.href='home.html'" id="reset"  class="btn btn-outline-primary my-2 my-sm-0">Disconnect</button>
         </div>
     </nav>
       <center>
@@ -83,20 +83,8 @@
         <div style="padding-top:5.1rem; padding-bottom: 6.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
             <div>
                 <h1>Create a Giveaway</h1></br></br>
-                <div id="1">
-                    <span>What are you giving away</span></br></br>
-                    <button id="btn2.1" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Thankz Tokens</button>
-                    <button id="btn2.2" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Somethings Else</button></br></br></br></br>
-                </div>
                 <div class="row">
-                    <div id="2.1" class="col" style="display: none;">
-                        <h3>Thankz Token</h3></br></br>
-                        <span>Thankz Balance: 400</span></br></br>
-                        <label>How many?</label>
-                        <input class="form-control" type="number" name="" id="" placeholder="" style="width: 40%;"></br></br>
-                        <button id="btn21" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next</button>
-                    </div>
-                    <div id="2.2" class="col" style="display: none;">
+                    <div id="2.2" class="col">
                         <div>
                             <span>Select a token in your wallet</span></br></br>
                             <div >
@@ -206,36 +194,7 @@
         const btn21 = document.getElementById("btn21");
         const btn22 = document.getElementById("toggle");
         const btn3 = document.getElementById("btn3");
-        btn.onclick = function () {
-            if (targetDiv.style.display !== "none") {
-                targetDiv.style.display = "none";
-                targetDiv21.style.display = "block";
-                
-            } else {
-                targetDiv.style.display = "block";
-                targetDiv21.style.display = "none";
-            }
-        };
-        btn2.onclick = function () {
-            if (targetDiv.style.display !== "none") {
-                targetDiv.style.display = "none";
-                targetDiv22.style.display = "block";
-                
-            } else {
-                targetDiv.style.display = "block";
-                targetDiv22.style.display = "none";
-            }
-        };
-        btn21.onclick = function () {
-            if (targetDiv21.style.display !== "none") {
-                targetDiv21.style.display = "none";
-                targetDiv3.style.display = "block";
-                
-            } else {
-                targetDiv21.style.display = "block";
-                targetDiv3.style.display = "none";
-            }
-        };
+        
         btn22.onclick = function () {
             nombre = document.getElementById("resToken").textContent;
             imgToken = document.getElementById("resImg").textContent;
