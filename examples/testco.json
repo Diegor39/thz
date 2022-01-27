@@ -1,0 +1,30 @@
+[
+ 
+        {"address":"KT18pVpRXKPY2c4U2yFEGSH3ZnhB2kL8kwXS",
+        "network":"mainnet",
+        "name":"Unknown",
+        "description":"Failed to fetch metadata ipfs://QmP8XaNKhSqC3HaGBRisoDSXB7EBryVr8fRBsxMcv8Jh79",
+        "count":4,
+        "contract_tags":["CHAIN_ID","CHECK_SIGNATURE","fa2"]},
+
+        {"address":"KT19zogYiqLqE1vgW5Scdm8XSUefcqn5vzRM",
+        "network":"mainnet",
+        "name":"Unknown",
+        "description":"Failed to fetch metadata ipfs://Qmero8xYZD9NebgsRRCSzBRfZDYRMnGvcGpZGBRh8LJmR6",
+        "count":1,"contract_tags":["fa2","ledger"]},
+
+    {"address":"KT1C9X9s5rpVJGxwVuHEVBLYEdAQ1Qw8QDjH",
+        "network":"mainnet","extras":
+        {"source":{"tools":["Ligo"]}},
+        "name":"TezDao",
+        "description":"FA2 Contract for TezDAO",
+        "version":"v0.0.1",
+        "authors":["FA2 Bakery"],
+        "interfaces":["TZIP-012","TZIP-016"],
+        "count":1,"contract_tags":["fa2","ledger"]},
+
+    {"address":"KT1CoL67McPxK535RzTMXo2ekUAgmFeyXyWT",
+        "network":"mainnet",
+        "count":1,
+        "contract_tags":["fa2","ledger"]}
+]

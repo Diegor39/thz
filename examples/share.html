@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <LINK REL=StyleSheet HREF="../assets/alert/fuente.css" TYPE="text/css" MEDIA=screen>
-      <script src="./walletbeacon.min.js"></script>
+    <script src="./walletbeacon.min.js"></script>
     
   </head>
   <body style="background-color: #37392E;">
@@ -24,53 +24,60 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <a class="nav-link" href="home.html">Home </a>
-            <a class="nav-item nav-link" href="fans.html">Fans </a>
-            <li class="nav-item active"><a class="nav-item nav-link" href="communities.html">Communities <span class="sr-only">(current)</span></a></li>
+            <li class="nav-item active">
+              <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <a class="nav-item nav-link" href="fans.html">Fans</a>
+            <a class="nav-item nav-link" href="communities.html">Communities </a>
+            <a class="nav-item nav-link" href="">Your events </a>
             <center><li class="nav-item active"><a class="nav-item nav-link" id="activeAccount"></a></li></center>
           </ul>
           <a class="nav-item nav-link" style="color: white;">Thankz Balance: 100</a>
-          <button onclick="window.location.href='home.html'" id="reset"  class="btn btn-outline-primary my-2 my-sm-0">Disconnect</button>
+          <button id="reset"  class="btn btn-outline-primary my-2 my-sm-0">Disconnect</button>
         </div>
       </nav>
       <center>
-        <span style="font-size: 5px;" style="display: none;">
-          <span id="activeAccount"></span>
+        <span style="font-size: 10px;">
           <span id="activeAccountNetwork" style="display: none;"></span>
           <span id="activeAccountTransport" style="display: none;"></span>
         </span>
       </center>
-        <div class="row" style="padding-top:5.1rem; padding-bottom: 3.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
+
+        <div class="row" style="padding-top:5.1rem; padding-bottom: 6.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
             <div class="col">
-                <h1>Communities</h1>
-                <span>Here is a list of all the communities you own at least one token.</span></br></br></br>
+                <h2>Event</h2>
+                <span>Name of event</span></br></br>
+                <span>Name of creator</span></br></br>
+                <div class="card cardho" style="border: none; width: 40%;">
+                    <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1LHHLso8zQWQWg1HUukajdxxbkGfNoHjh6/0/7/2507/artifact.png" alt="Card image cap">
+                    <div class="card-footer">
+                      <div class="row">
+                        <div class="col-4"><p class="card-text" style="text-align: left;">Free</p></div>
+                        <div class="col-8"><p class="card-text" style="text-align: right;">Participants: 400</p></div>
+                      </div>
+                    </div>
+                </div>
+
+                
             </div>
             <div class="col" >
-                <center><img src="/assets/fondos/undraw_meet_the_team_re_4h08.svg" alt="" style="width: 55%; margin-top: -3.5rem;"></center>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Paticipate</button></br></br>
+                <button class="btn btn-outline-primary my-2 my-sm-0">Share</button>
             </div>
         </div>       
     </div>
 
-    <div id="2" style="padding-bottom: 6.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
-        <h3>Your Communities</h3></br>
-
-        <table class="table table-dark">
-            <thead>
-              <tr>
-                <th scope="col">Wallet</th>
-                <th scope="col">Name</th>
-                <th scope="col">network</th>
-                <th scope="col"># of your tokens</th>
-              </tr>
-            </thead>
-            <tbody id="res">
-                
-            </tbody>
-        </table>
-
-    
-</div>
-    
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">        
+          <div class="modal-body">
+              <div>
+                 <center><span style="color: #37392E;">Connect your wallet first, pls :D</span></center>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <iframe src="footer.html" frameborder="0" style="width: 100%;height: 170px;"></iframe>
     <div style="display: none;">
@@ -153,7 +160,6 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="com.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -181,13 +187,21 @@
             document.getElementById('activeAccountNetwork').innerHTML = activeAccount.network.type
             document.getElementById('activeAccountTransport').innerHTML = activeAccount.origin.type
             connectdie ="conectado"
-  
+            document.getElementById('unsync').style.display = "none";
+            document.getElementById('sync').style.display = "block";
+            document.getElementById('requestPermission').style.display = "none";
+            document.getElementById('reset').style.display = "block";
+            
             
           } else {
             document.getElementById('activeAccount').innerHTML = ''
             document.getElementById('activeAccountNetwork').innerHTML = ''
             document.getElementById('activeAccountTransport').innerHTML = ''
             connectdie ="no conectado"
+            document.getElementById('unsync').style.display = "block";
+            document.getElementById('sync').style.display = "none";
+            document.getElementById('requestPermission').style.display = "block";
+            document.getElementById('reset').style.display = "none";
             
           }
   
@@ -477,6 +491,6 @@
         console.log('Deserializing:', value)
         new beacon.Serializer().deserialize(value).then(console.log).catch(console.error)
       })
-  </script>
+    </script>
   </body>
 </html>
