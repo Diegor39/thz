@@ -1,6 +1,11 @@
     const xhttp = new XMLHttpRequest();
     xhttp.addEventListener('load', onreadystatechange)
-    xhttp.open('GET', 'https://thankz-api.herokuapp.com/api/get/tokensByHolder?pkh=tz1ZLedXnXnPbk43LD1sHHG3NMXG7ZveZ1jr', true);
+    wallet = document.getElementById('activeAccount').textContent;
+    console.log(wallet);
+    link = 'https://thankz-api.herokuapp.com/api/get/tokensByHolder?pkh=';
+    var api = link + wallet;
+    console.log(api);
+    xhttp.open('GET', api, true);
 
     xhttp.send();
 

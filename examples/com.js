@@ -1,6 +1,10 @@
 const xhttp1 = new XMLHttpRequest();
 xhttp1.addEventListener('load', getfans)
-xhttp1.open('GET', 'testco.json', true);
+wallet = document.getElementById('activeAccount').textContent;
+link = 'https://thankz-api.herokuapp.com/api/get/collectionsByHolder?pkh=';
+var api = link + wallet;
+console.log(api);
+xhttp1.open('GET', api, true);
 
 xhttp1.send();
 

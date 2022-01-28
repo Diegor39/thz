@@ -17,7 +17,7 @@
   <body style="background-color: #37392E;">
     <div style="background-color: #37392E;">
       <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #37392E;">
-        <a class="navbar-brand" href="#" style="color: #F564A9;">Thankz</a>
+        <a class="navbar-brand" href="home.html" style="color: #F564A9;">Thankz</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,7 +32,7 @@
             <a class="nav-item nav-link" href="">Your events </a>
             <center><li class="nav-item active"><a class="nav-item nav-link" id="activeAccount"></a></li></center>
           </ul>
-          <a class="nav-item nav-link" style="color: white;">Thankz Balance: 100</a>
+          <a class="nav-item nav-link" style="color: white;">Your events</a>
           <button id="reset"  class="btn btn-outline-primary my-2 my-sm-0">Disconnect</button>
         </div>
       </nav>
@@ -43,27 +43,30 @@
         </span>
       </center>
 
-        <div class="row" style="padding-top:5.1rem; padding-bottom: 6.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
-            <div class="col">
-                <h2>Event</h2>
-                <span>Name of event</span></br></br>
+        <div  style="padding-top:5.1rem; padding-bottom: 6.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
+            <div >
+                <h2>Name of event</h2>
+                <span>Event</span></br></br>
                 <span>Name of creator</span></br></br>
-                <div class="card cardho" style="border: none; width: 40%;">
+                <div class="card cardho" style="border: none; width: 15%;">
                     <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1LHHLso8zQWQWg1HUukajdxxbkGfNoHjh6/0/7/2507/artifact.png" alt="Card image cap">
                     <div class="card-footer">
                       <div class="row">
                         <div class="col-4"><p class="card-text" style="text-align: left;">Free</p></div>
-                        <div class="col-8"><p class="card-text" style="text-align: right;">Participants: 400</p></div>
+                        <div class="col-8"><p class="card-text" style="text-align: right;">Entries: 400</p></div>
                       </div>
+                    </div>  
+                </div>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="width: 15%;">Enter</button>
+                </br></br>
+                <div class="input-group mb-3">
+                    <input type="text" disabled value="http://127.0.0.1:5500/examples/share.html">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-primary my-2 my-sm-0" type="button">Copy link</button>
                     </div>
                 </div>
-
-                
             </div>
-            <div class="col" >
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Paticipate</button></br></br>
-                <button class="btn btn-outline-primary my-2 my-sm-0">Share</button>
-            </div>
+            
         </div>       
     </div>
 
