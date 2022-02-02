@@ -71,7 +71,7 @@
             <a class="nav-item nav-link" href="communities.html">Communities </a>
             <center><li class="nav-item active"><a class="nav-item nav-link" id="activeAccount"></a></li></center>
           </ul>
-          <a class="nav-item nav-link" style="color: white;">Your events</a>
+          <a class="nav-item nav-link" href="your_events.html" style="color: white;">Your events</a>
           <button onclick="window.location.href='home.html'" id="reset"  class="btn btn-outline-primary my-2 my-sm-0">Disconnect</button>
         </div>
     </nav>
@@ -106,19 +106,20 @@
                 <button id="toggle" style="border-radius: 5rem; display: none;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next Step</button>
                 </div>
                 
+                <div id="cardToken" style="display: none;">
+                    <span>Selected Token: <h1 id="resToken2" style="display: none;"></h1></span></br></br>
+                    <div class="card" style="max-width: 20%;">
+                        <img id="imgRes2"  class="card-img-top" src="" alt="Card image cap">
+                        <div class="card-body">
+                            <p id="resToken3"></p>
+                        </div>
+                    </div></br>
+                </div>
 
                 <div id="second" style="display: none;">
                     <span>Selected Token: <h1 id="resToken2" style="display: none;"></h1></span></br></br>
                     
                     <div >
-                        <div >
-                            <div class="card" style="max-width: 20%;">
-                                <img id="imgRes2"  class="card-img-top" src="" alt="Card image cap">
-                                <div class="card-body">
-                                    <p id="resToken3"></p>
-                                </div>
-                            </div></br>
-                        </div>
                         <div >
                             <div>
                                 <form action="" method="get">
@@ -126,7 +127,7 @@
                                     <input class="form-control" type="text" name="" id="Rafflename" placeholder="Name" style="width: 20%;"></br></br>
                                     <div class="form-check">
                                         <input onchange="showContent()" class="form-check-input" type="checkbox" value="" id="defaultCheck1"><label>Set max number of entries</label>
-                                    </div></br>
+                                    </div></br></br>
                                     <div id="content" style="display: none;">
                                         <label>Max  participants: </label>
                                         <input class="form-control" type="number" name="" id="Rafflenumber" placeholder="Number" style="width: 20%;" min="1"></br></br>
@@ -323,6 +324,7 @@
     <script>
         const targetDiv = document.getElementById("first");
         const targetDiv2 = document.getElementById("second");
+        const targetcardtoken = document.getElementById("cardToken")
         const targetDiv3 = document.getElementById("3");
         const btn = document.getElementById("toggle");
         const btnStar = document.getElementById("btnStart");
@@ -330,6 +332,7 @@
             if (targetDiv.style.display !== "none") {
                 targetDiv.style.display = "none";
                 targetDiv2.style.display = "block";
+                targetcardtoken.style.display = "block";
                 nombre = document.getElementById("resToken").textContent;
                 imgToken = document.getElementById("resImg").textContent;
 
@@ -339,6 +342,7 @@
             } else {
                 targetDiv.style.display = "block";
                 targetDiv2.style.display = "none";
+                targetcardtoken.style.display = "none";
             }
         };
 

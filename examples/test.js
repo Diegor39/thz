@@ -5,7 +5,7 @@
     link = 'https://thankz-api.herokuapp.com/api/get/tokensByHolder?pkh=';
     var api = link + wallet;
     console.log(api);
-    xhttp.open('GET', api, true);
+    xhttp.open('GET', 'https://thankz-api.herokuapp.com/api/get/tokensByHolder?pkh=tz1UUSrrxHq647suLgAngWE481UTbzUonf9G', true);
 
     xhttp.send();
 
@@ -24,14 +24,16 @@
                 console.log(resultado)
                 
                 res.innerHTML += `
-
-                <div tabindex="0" class="card cardho" style="max-width: 13%;" onclick='document.getElementById("resToken").innerHTML = "${item.name}"; document.getElementById("resImg").innerHTML = "https://cloudflare-ipfs.com/ipfs/${resultado}"; document.getElementById("toggle").style.display = "block";'>
-                    <img class="card-img-top" style="max-height: 70%; min-height: 70%;" src="https://cloudflare-ipfs.com/ipfs/${resultado}" alt="Card image cap">
-                    
-                    <div class="card-body">
-                        <p>${item.name}</p>
+                <div >
+                    <div class="card cardho" style="width: 250px;margin-top: 4%; margin-left: 5%; "  onclick='document.getElementById("resToken").innerHTML = "${item.name}"; document.getElementById("resImg").innerHTML = "https://cloudflare-ipfs.com/ipfs/${resultado}"; document.getElementById("toggle").style.display = "block";'>
+                        <img class="card-img-top" style="max-height: 300px; min-height: 300px;" src="https://cloudflare-ipfs.com/ipfs/${resultado}" alt="Card image cap">
+                
+                        <div class="card-body">
+                            <p>${item.name}</p>
+                        </div>
                     </div>
-                </div> `
+                </div>
+                 `
                 
                 
             }
