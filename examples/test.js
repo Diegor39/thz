@@ -25,7 +25,7 @@
                 
                 res.innerHTML += `
                 <div >
-                    <div class="card cardho" style="width: 250px;margin-top: 4%; margin-left: 5%; "  onclick='document.getElementById("resToken").innerHTML = "${item.name}"; document.getElementById("resImg").innerHTML = "https://cloudflare-ipfs.com/ipfs/${resultado}"; document.getElementById("toggle").style.display = "block";'>
+                    <div id="toggle" class="card cardho" style="width: 250px;margin-top: 4%; margin-left: 5%; "  onclick='document.getElementById("resToken").innerHTML = "${item.name}"; document.getElementById("resImg").innerHTML = "https://cloudflare-ipfs.com/ipfs/${resultado}"; document.getElementById("toggle").style.display = "block";'>
                         <img class="card-img-top" style="max-height: 300px; min-height: 300px;" src="https://cloudflare-ipfs.com/ipfs/${resultado}" alt="Card image cap">
                 
                         <div class="card-body">

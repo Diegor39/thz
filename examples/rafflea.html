@@ -105,10 +105,12 @@
                     <span> <h1 id="resToken" style="display: none;"></h1></span> 
                     <p id="resImg" style="display: none;"></p>
                 </br></br>
-                <button id="toggle" style="border-radius: 5rem; display: none;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next Step</button>
+                <button id="toggle_old" style="border-radius: 5rem; display: none;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next Step</button>
                 </div>
 
+                
                 <div id="cardToken" style="display: none;">
+                    <button id="back"  style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Back</button> </br></br></br>
                     <span>Selected Token: <h1 id="resToken2" style="display: none;"></h1></span></br></br>
                     <div class="card" style="max-width: 20%;">
                         <img id="imgRes2"  class="card-img-top" src="" alt="Card image cap">
@@ -120,15 +122,15 @@
                 
 
                 <div id="second" style="display: none;">
-                   
+                    
                     
                     <div >
                         
                         <div >
                             <div>
-                                <form action="" method="get">
+                                <form onchange="showContent()">
                                     <label>Raffle name:</label>
-                                    <input class="form-control" type="text" name="" id="Rafflename" placeholder="Name" style="width: 20%;"></br></br>
+                                    <input class="form-control" type="text" name="" id="Rafflename" placeholder="Name" style="width: 20%;" required></br></br>
                                     <div class="form-check">
                                         <input onchange="showContent()" class="form-check-input" type="checkbox" value="" id="defaultCheck1"><label>Set max number of entries:</label>
                                     </div></br></br>
@@ -138,7 +140,7 @@
                                     </div>
                                     
                                     <label>How long will it last?</label>
-                                    <div class="input-group mb-3" style="width: 20%;">
+                                    <div class="input-group mb-3" style="width: 20%;" required>
                                         <select class="custom-select" id="inputGroupSelect01">
                                           <option selected id="time">Choose time</option>
                                           <option value="1 hour">1 hour</option>
@@ -159,13 +161,15 @@
                                         <button style="margin-left: 1rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">1 week</button>
                                     </div></br></br>
                                     <label>Entry cost</label>
-                                    <input class="form-control" type="number" name="" id="Rafflecost" placeholder="Cost in XTZ" style="width: 20%; " min="1"></br></br>
-                                </form> 
+                                    <input class="form-control" type="number" name="" id="Rafflecost" placeholder="Cost in XTZ" style="width: 20%; " min="1" required></br></br>
+                                
                             </div>
 
                         </div>
                     </div> 
-                    <button id="btnStart" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit" >Next Step</button>
+                    <button  style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit" >Next Step</button>
+                    <input id="btnStart" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Enviar" id="enviar" class="boton">
+                </form> 
                 </div>
 
 
@@ -329,62 +333,7 @@
     }
         
     </script>
-    <script>
-        const targetDiv = document.getElementById("first");
-        const targetDiv2 = document.getElementById("second");
-        const targetcardtoken = document.getElementById("cardToken")
-        const targetDiv3 = document.getElementById("3");
-        const btn = document.getElementById("toggle");
-        const btnStar = document.getElementById("btnStart");
-        btn.onclick = function () {
-            if (targetDiv.style.display !== "none") {
-                targetDiv.style.display = "none";
-                targetDiv2.style.display = "block";
-                targetcardtoken.style.display = "block";
-                nombre = document.getElementById("resToken").textContent;
-                imgToken = document.getElementById("resImg").textContent;
-
-                document.getElementById("resToken2").textContent = nombre;
-                document.getElementById("resToken3").textContent = nombre;
-                document.getElementById("imgRes2").src = imgToken;
-            } else {
-                targetDiv.style.display = "block";
-                targetDiv2.style.display = "none";
-                targetcardtoken.style.display = "none";
-            }
-        };
-
-        btnStar.onclick = function () {
-            Rafflename = document.getElementById('Rafflename').value;
-            Rafflenumber = document.getElementById('Rafflenumber').value;
-            Rafflecost = document.getElementById('Rafflecost').value;
-            nombre = document.getElementById("resToken").textContent;
-            time = document.getElementById('inputGroupSelect01').value;
-
-            if (targetDiv2.style.display !== "none") {
-                targetDiv2.style.display = "none";
-                targetDiv3.style.display = "block";
-                
-
-                document.getElementById("Rname").value = Rafflename;
-                document.getElementById("Rnumber").value = Rafflenumber;
-                document.getElementById("Rcost").value = Rafflecost;
-                document.getElementById("sToken").value = nombre;
-                document.getElementById("Rname2").textContent = Rafflename;
-                document.getElementById("Rnumber2").textContent = Rafflenumber;
-                document.getElementById("Rcost2").textContent = Rafflecost;
-                document.getElementById("sToken2").textContent = nombre;
-                document.getElementById("time2").textContent = time;
-
-            } else {
-                targetDiv2.style.display = "block";
-                targetDiv3.style.display = "none";
-            }
-
-           
-        };
-        
-    </script>
+    
 
     <script >
     // Initiate DAppClient
@@ -707,6 +656,82 @@
     })
     </script>
     <script src="test.js"></script>
+    <script>
+        const targetDiv = document.getElementById("first");
+        const targetDiv2 = document.getElementById("second");
+        const targetcardtoken = document.getElementById("cardToken")
+        const targetDiv3 = document.getElementById("3");
+        const btn = document.getElementById("res");
+        const btnStar = document.getElementById("btnStart");
+        const btnBack = document.getElementById("back");
+        btn.onclick = function () {
+            if (targetDiv.style.display !== "none") {
+                targetDiv.style.display = "none";
+                targetDiv2.style.display = "block";
+                targetcardtoken.style.display = "block";
+                nombre = document.getElementById("resToken").textContent;
+                imgToken = document.getElementById("resImg").textContent;
+
+                document.getElementById("resToken2").textContent = nombre;
+                document.getElementById("resToken3").textContent = nombre;
+                document.getElementById("imgRes2").src = imgToken;
+            } else {
+                targetDiv.style.display = "block";
+                targetDiv2.style.display = "none";
+                targetcardtoken.style.display = "none";
+            }
+        };
+
+        btnStar.onclick = function () {
+            Rafflename = document.getElementById('Rafflename').value;
+            Rafflenumber = document.getElementById('Rafflenumber').value;
+            Rafflecost = document.getElementById('Rafflecost').value;
+            nombre = document.getElementById("resToken").textContent;
+            time = document.getElementById('inputGroupSelect01').value;
+
+            if (targetDiv2.style.display !== "none") {
+                targetDiv2.style.display = "none";
+                targetDiv3.style.display = "block";
+                
+
+                document.getElementById("Rname").value = Rafflename;
+                document.getElementById("Rnumber").value = Rafflenumber;
+                document.getElementById("Rcost").value = Rafflecost;
+                document.getElementById("sToken").value = nombre;
+                document.getElementById("Rname2").textContent = Rafflename;
+                document.getElementById("Rnumber2").textContent = Rafflenumber;
+                document.getElementById("Rcost2").textContent = Rafflecost;
+                document.getElementById("sToken2").textContent = nombre;
+                document.getElementById("time2").textContent = time;
+
+            } else {
+                targetDiv2.style.display = "block";
+                targetDiv3.style.display = "none";
+            }
+
+           
+        };
+
+        btnBack.onclick = function () {
+            
+
+            if (targetDiv2.style.display !== "none") {
+                targetDiv2.style.display = "none";
+                targetDiv3.style.display = "none";
+                targetcardtoken.style.display = "none";
+                targetDiv.style.display = "block";
+                
+
+            } else {
+                targetDiv.style.display = "block";
+                targetDiv3.style.display = "none";
+                targetcardtoken.style.display = "none";
+            }
+
+           
+        };
+        
+    </script>
 
     
     

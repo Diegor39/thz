@@ -107,6 +107,7 @@
                 </div>
                 
                 <div id="cardToken" style="display: none;">
+                    <button id="back"  style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Back</button> </br></br></br>
                     <span>Selected Token: <h1 id="resToken2" style="display: none;"></h1></span></br></br>
                     <div class="card" style="max-width: 20%;">
                         <img id="imgRes2"  class="card-img-top" src="" alt="Card image cap">
@@ -326,8 +327,9 @@
         const targetDiv2 = document.getElementById("second");
         const targetcardtoken = document.getElementById("cardToken")
         const targetDiv3 = document.getElementById("3");
-        const btn = document.getElementById("toggle");
+        const btn = document.getElementById("res");
         const btnStar = document.getElementById("btnStart");
+        const btnBack = document.getElementById("back");
         btn.onclick = function () {
             if (targetDiv.style.display !== "none") {
                 targetDiv.style.display = "none";
@@ -368,6 +370,24 @@
             } else {
                 targetDiv2.style.display = "block";
                 targetDiv3.style.display = "none";
+            }
+
+           
+        };
+        btnBack.onclick = function () {
+            
+
+            if (targetDiv2.style.display !== "none") {
+                targetDiv2.style.display = "none";
+                targetDiv3.style.display = "none";
+                targetcardtoken.style.display = "none";
+                targetDiv.style.display = "block";
+                
+
+            } else {
+                targetDiv.style.display = "block";
+                targetDiv3.style.display = "none";
+                targetcardtoken.style.display = "none";
             }
 
            
