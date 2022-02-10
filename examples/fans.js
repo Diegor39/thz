@@ -4,7 +4,7 @@ wallet = document.getElementById('activeAccount').textContent;
 link = 'https://thankz-api.herokuapp.com/api/get/fansByArtist?pkh=';
 var api = link + wallet;
 console.log(api);
-xhttp1.open('GET', api, true);
+xhttp1.open('GET', 'https://thankz-api.herokuapp.com/api/get/fansByArtist?pkh=tz1LpQs9b1QXsw57jdkfvEdg31p4WTBVAUmd', true);
 
 xhttp1.send();
 
@@ -12,7 +12,7 @@ function getfans() {
     if (this.readyState == 4 && this.status == 200){
         let datos = JSON.parse(this.responseText);
         console.log(datos);
-        let res = document.querySelector('#res');
+        let res = document.querySelector('#resfans');
         res.innerHTML = '';
         
         for(let item of datos){
