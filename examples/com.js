@@ -21,9 +21,10 @@ function getfans() {
             
             res.innerHTML += `
             <tr >
-                <td>${item.address}</td>
-                <td>${item.name}</td>
-                <td>${item.network}</td>
+            <td>${item.address}</td>
+            <td>${item.name}</td>
+                <td>${item.tzdomain}</td>
+                <td>${item.twitter}</td>
                 <td>${item.count}</td>
             </tr>
                   
