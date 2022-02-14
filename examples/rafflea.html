@@ -128,7 +128,6 @@
                         
                         <div >
                             <div>
-                                <form onchange="showContent()">
                                     <label>All fields required</label> </br></br>
                                     <label>Raffle name:</label>
                                     <input class="form-control" type="text" name="" id="Rafflename" placeholder="Name" style="width: 20%;" required></br></br>
@@ -141,7 +140,7 @@
                                     </div>
                                     
                                     <label>How long will it last?</label>
-                                    <div class="input-group mb-3" style="width: 20%;" required>
+                                    <div id="select_time" class="input-group mb-3" style="width: 20%;" required>
                                         <select class="custom-select" id="inputGroupSelect01">
                                           <option selected id="time">Choose time</option>
                                           <option value="1 hour">1 hour</option>
@@ -168,29 +167,11 @@
 
                         </div>
                     </div> 
-                    <button  style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit" >Next Step</button>
-                    <input id="btnStart" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Enviar" id="enviar" class="boton">
-                </form> 
+                    <button id="btnStart" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit" disabled>Next Step</button>
+                    
                 </div>
 
 
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        
-                        <div class="modal-body">
-                            <div>
-                               <h2>https://thankz/rafffle?sc=d193d71dus1oid13u9</h2>
-                                    
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Share</button>
-                        
-                        </div>
-                      </div>
-                    </div>
-                </div>
 
 
                   <div id="3" style="display: none;">
@@ -684,6 +665,30 @@
             }
         };
 
+        function habilitar(){
+            txt1 = document.getElementById('Rafflename').value;
+            select = document.getElementById('select_time').value;
+            txt2 = document.getElementById('Rafflecost').value;
+            val = 0;
+            if(txt1 == ""){
+                val++;
+            }
+            if(select == ""){
+                val++;
+            }
+            if(txt2 == ""){
+                val++;
+            }
+            if(val == 0){
+                document.getElementById("btnStart").disabled = false;
+            } else{
+                document.getElementById("btnStart").disabled = true;
+            }
+        }
+        document.getElementById('Rafflename').addEventListener("keyup", habilitar);
+        document.getElementById('Rafflecost').addEventListener("change", habilitar);
+        document.getElementById('select_time').addEventListener("change", habilitar);
+
         btnStar.onclick = function () {
             Rafflename = document.getElementById('Rafflename').value;
             Rafflenumber = document.getElementById('Rafflenumber').value;
@@ -734,7 +739,6 @@
         };
         
     </script>
-
     
     
   </body>
