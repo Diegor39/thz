@@ -112,7 +112,7 @@
                 <div id="cardToken" style="display: none;">
                     <button id="back"  style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Back</button> </br></br></br>
                     <span>Selected Token: <h1 id="resToken2" style="display: none;"></h1></span></br></br>
-                    <div class="card" style="max-width: 20%;">
+                    <div class="card col-SM-10  col-lg-3">
                         <img id="imgRes2"  class="card-img-top" src="" alt="Card image cap">
                         <div class="card-body">
                             <p id="resToken3"></p>
@@ -121,7 +121,7 @@
                 </div>
                 
 
-                <div id="second" style="display: none;">
+                <div id="second" style="display: none;" class="col-SM-10  col-lg-3" >
                     
                     
                     <div >
@@ -130,17 +130,17 @@
                             <div>
                                     <label>All fields required</label> </br></br>
                                     <label>Raffle name:</label>
-                                    <input class="form-control" type="text" name="" id="Rafflename" placeholder="Name" style="width: 20%;" required></br></br>
+                                    <input class="form-control" type="text" name="" id="Rafflename" placeholder="Name"  required></br></br>
                                     <div class="form-check">
                                         <input onchange="showContent()" class="form-check-input" type="checkbox" value="" id="defaultCheck1"><label>Set max number of entries:</label>
                                     </div></br></br>
                                     <div id="content" style="display: none;">
                                         <label>Max entries</label>
-                                        <input class="form-control" type="number" name="" id="Rafflenumber" placeholder="Number" style="width: 20%;" min="1"></br></br>
+                                        <input class="form-control" type="number" name="" id="Rafflenumber" placeholder="Number"  min="1"></br></br>
                                     </div>
                                     
                                     <label>How long will it last?</label>
-                                    <div id="select_time" class="input-group mb-3" style="width: 20%;" required>
+                                    <div id="select_time" class="input-group mb-3" required>
                                         <select class="custom-select" id="inputGroupSelect01">
                                           <option selected id="time">Choose time</option>
                                           <option value="1 hour">1 hour</option>
@@ -161,7 +161,7 @@
                                         <button style="margin-left: 1rem; border-radius: 5rem;" type="button" class="btn btn-outline-primary">1 week</button>
                                     </div></br></br>
                                     <label>Entry cost</label>
-                                    <input class="form-control" type="number" name="" id="Rafflecost" placeholder="Cost in XTZ" style="width: 20%; " min="1" required></br></br>
+                                    <input class="form-control" type="number" name="" id="Rafflecost" placeholder="Cost in XTZ"  min="1" required></br></br>
                                 
                             </div>
 
