@@ -25,8 +25,8 @@ function onreadystatechange() {
             
             res.innerHTML += `
             <div >
-                <div id="toggle" class="card cardho" style="width: 250px; margin-left: 12%; " onclick="window.location.href='share.html?event=${resultado}'">
-                    <img class="card-img-top" style="max-height: 30%; min-height: 30%;" src="https://cloudflare-ipfs.com/ipfs/${resultado}" alt="Card image cap">
+                <div id="toggle" class="card cardho" style="width: 320px;" onclick="window.location.href='share.html?rafflesById?id==${resultado}'">
+                    <img class="card-img-top"  src="https://cloudflare-ipfs.com/ipfs/${resultado}" alt="Card image cap">
                     <div class="card-body">
                     <h5 class="card-title">&#127941 Airdrops</h5>
                     <p class="card-text">1k subscribers celebration</p>

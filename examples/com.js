@@ -4,7 +4,7 @@ wallet = document.getElementById('activeAccount').textContent;
 link = 'https://thankz-api.herokuapp.com/api/get/collectionsByHolder?pkh=';
 var api = link + wallet;
 console.log(api);
-xhttp1.open('GET', api, true);
+xhttp1.open('GET', 'https://thankz-api.herokuapp.com/api/get/infoCollectionsByHolder?pkh=tz1LpQs9b1QXsw57jdkfvEdg31p4WTBVAUmd', true);
 
 xhttp1.send();
 
@@ -23,9 +23,9 @@ function getfans() {
             <tr >
             <td>${item.address}</td>
             <td>${item.name}</td>
-                <td>${item.tzdomain}</td>
-                <td>${item.twitter}</td>
-                <td>${item.count}</td>
+                <td>${item.website}</td>
+                <td>${item.authors}</td>
+                <td>${item.amount}</td>
             </tr>
                   
 

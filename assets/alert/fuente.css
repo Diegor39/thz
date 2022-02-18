@@ -60,3 +60,6 @@ a{
 .table-dark td, .table-dark th, .table-dark thead th{
     border-color: #FBC5E0 !important; 
 }
+.card-columns {
+     column-count: 4;
+}
