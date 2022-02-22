@@ -48,9 +48,16 @@
                 <h1>Build your Web 3.0 community</h1>
                 <span>Thankz helps you give back to your fans and favorite NFT artists.</span></br></br></br>
                 <div id="sync" style="display: none;">
-                  <button onclick="window.location.href='rafflea.html'" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Create a Raffle</button>
-                  <button onclick="window.location.href='giveaway.html'" style="border-radius: 5rem; margin-left: 1rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Create a Giveaway</button>
-                  <button onclick="window.location.href='airdrop.html'" style="border-radius: 5rem; margin-left: 1rem; display: none;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Send Airdrops</button>
+                  <ion-icon style="color: white;" size="small" name="information-circle-outline"></ion-icon><button onclick="window.location.href='rafflea.html'" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Create a Raffle</button>
+                  <ion-icon style="color: white; margin-left: 1rem;" size="large" name="information-circle-outline"></ion-icon><button onclick="window.location.href='giveaway.html'" style="border-radius: 5rem; " class="btn btn-outline-success my-2 my-sm-0" type="submit">Create a Giveaway</button>
+                  <div class="dropdown">
+                    <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border-radius: 1rem; background: none;">i</button>
+                    <button onclick="window.location.href='airdrop.html'" style="border-radius: 5rem; margin-left: 1rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Send Airdrops</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <p>Esto es un test de un Info Button para Thankz, en particular para Send Airdrop</p>
+                    </div>
+                  </div>
+                  
                 </div>
                 <div id="unsync" style="display: none;">
                   <button data-toggle="modal" data-target="#exampleModalCenter" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Create a Raffle</button>

@@ -27,6 +27,11 @@ a{
     color: #F564A9 !important;
     border-color: #F564A9 !important;
 }
+.btn-outline-success:disabled{
+    background-color: none !important;
+    color: #F6EFEE !important;
+    border-color: #F6EFEE !important;
+}
 .btn-outline-success:hover, .btn-outline-success:active, .btn-outline-success:visited {
     background-color: #F564A9 !important;
     color: #F6EFEE !important;
