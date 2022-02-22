@@ -28,12 +28,18 @@ function onreadystatechange() {
                 <div id="toggle" class="card cardho" style="width: 320px;" onclick="window.location.href='share.html?rafflesById?id==${resultado}'">
                     <img class="card-img-top"  src="https://cloudflare-ipfs.com/ipfs/${resultado}" alt="Card image cap">
                     <div class="card-body">
-                    <h5 class="card-title">&#127941 Airdrops</h5>
-                    <p class="card-text">1k subscribers celebration</p>
+                    <div class="row">
+                    <div class="col">
+                    <h5 class="card-title">${item.event12}</h5>
+                    </div>
+                    <div class="col">
                     <p class="card-text" style="text-align: right;">Jupiter</p>
+                    </div>
+                    </div> 
+                    <center><p class="card-text">1k subscribers celebration</p></center>
                   </div>
                   <div class="card-footer">
-                    <p class="card-text" style="text-align: right;">400 tokens airdropped</p>
+                    <p class="card-text" style="text-align: right;">${item.amount} tokens</p>
                   </div>
                 </div>
             </div>
