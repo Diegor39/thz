@@ -86,7 +86,7 @@
     <div >
         <div style="padding-top:2.1rem; padding-bottom: 6.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
             <div>
-                <h1>Create a Giveaway</h1></br></br>
+                <h1>Create a Giveaway<ion-icon style="color: white; margin-left: 1rem;" size="large" name="information-circle-outline"></ion-icon> </h1></br></br>
                 <div id="first">
                     <div>
                         <span>Select a token in your wallet</span></br></br>
@@ -327,6 +327,9 @@
                 targetDiv2.style.display = "none";
                 targetcardtoken.style.display = "none";
             }
+            if (connectdie == "no conectado"){
+            window.location.href='home.html' 
+          }
         };
 
         function habilitar(){

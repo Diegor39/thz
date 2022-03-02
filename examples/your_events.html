@@ -283,10 +283,13 @@
             document.getElementById('unsync').style.display = "block";
             document.getElementById('sync').style.display = "none";
             document.getElementById('requestPermission').style.display = "block";
-            document.getElementById('reset').style.display = "none";
+            document.getElementById('reset').style.display = "none"; 
             
           }
-  
+
+          if (connectdie == "no conectado"){
+            window.location.href='home.html' 
+          }
           
         })
         

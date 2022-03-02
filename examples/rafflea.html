@@ -85,8 +85,10 @@
     <div >
         <div style="padding-top:2.1rem; padding-bottom: 6.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
             <div>
-                <h1>Create a Raffle</h1></br></br>
+                <h1>Create a Raffle<ion-icon style="color: white; margin-left: 1rem;" size="large" name="information-circle-outline"></ion-icon> </h1></br></br>
+                <button id="contractCall">Contract Call</button>
                 <div id="first">
+
                     <div>
                         <span>Select a token in your wallet</span></br></br>
                         <div >
@@ -192,9 +194,16 @@
                         <span >Total:</span>
                         <input id="Rcost" name="Rcost" style="display: none;"></input>
                         <span id="Rcost2" ></span></br></br>
+
+                        <div class="card" style="background-color: #313329;">
+                            <div class="card-body">
+                                </ion-icon><p class="card-text" style="color: white;"><ion-icon name="alert-circle-outline" style="color: orange;"></ion-icon> With supporting text below as a natural lead-in to additional content.</p>
+                            </div>
+                        </div></br>
     
                     </div>
                     <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="window.location.href='share.html'">Start Raffle</button>
+                    
                 </div>
             </div>   
         </div>
@@ -350,6 +359,9 @@
           
           
         }
+        if (connectdie == "no conectado"){
+            window.location.href='home.html' 
+          }
 
         
       })
@@ -396,7 +408,7 @@
     // Initiate a permission request
     const requestPermission = (callback) => {
       client
-        .requestPermissions(/*{ network: { type: beacon.NetworkType.GRANADANET } }*/)
+        .requestPermissions({ network: { type: beacon.NetworkType.GRANADANET } })
         .then((permissions) => {
           console.log('permissions', permissions)
           if (callback) {
@@ -573,18 +585,66 @@
       client
         .requestOperation({
           operationDetails: [
-            {
-              kind: beacon.TezosOperationType.TRANSACTION,
-              amount: document.getElementById("total").value,
-              destination: 'KT1HFHG7vhP658yM61u8HxVSjx1q3q4rGqLG',
-              parameters: {
-                entrypoint: 'mint',
-                value: {
-                  int: document.getElementById("valor1").value
-                }
+  {
+    destination: "KT1JRY8iEtzUjhmJ4T5T9MohwDrpSGC5U1ek",
+    kind:  beacon.TezosOperationType.TRANSACTION,
+    amount: 0,
+    parameters: {
+      entrypoint: "create_raffle",
+      value: {
+        prim: "Pair",
+        args: [
+          {
+            string: "title"
+          },
+          {
+            prim: "Pair",
+            args: [
+              {
+                string: "description"
+              },
+              {
+                prim: "Pair",
+                args: [
+                  {
+                    string: "KT1FkEjAXyRt6yNxwz9KeesijNkZev6eg6fk"
+                  },
+                  {
+                    prim: "Pair",
+                    args: [
+                      {
+                        int: "14"
+                      },
+                      {
+                        prim: "Pair",
+                        args: [
+                          {
+                            int: "1"
+                          },
+                          {
+                            prim: "Pair",
+                            args: [
+                              {
+                                int: "100"
+                              },
+                              {
+                                int: "1000000"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
-            }
-          ]
+            ]
+          }
+        ]
+      }
+    }
+  }
+]
         })
         .then((response) => console.log(response))
         .catch((error) => console.log(error))

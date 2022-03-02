@@ -48,16 +48,8 @@
                 <h1>Build your Web 3.0 community</h1>
                 <span>Thankz helps you give back to your fans and favorite NFT artists.</span></br></br></br>
                 <div id="sync" style="display: none;">
-                  <ion-icon style="color: white;" size="small" name="information-circle-outline"></ion-icon><button onclick="window.location.href='rafflea.html'" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Create a Raffle</button>
-                  <ion-icon style="color: white; margin-left: 1rem;" size="large" name="information-circle-outline"></ion-icon><button onclick="window.location.href='giveaway.html'" style="border-radius: 5rem; " class="btn btn-outline-success my-2 my-sm-0" type="submit">Create a Giveaway</button>
-                  <div class="dropdown">
-                    <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border-radius: 1rem; background: none;">i</button>
-                    <button onclick="window.location.href='airdrop.html'" style="border-radius: 5rem; margin-left: 1rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Send Airdrops</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <p>Esto es un test de un Info Button para Thankz, en particular para Send Airdrop</p>
-                    </div>
-                  </div>
-                  
+                  <button onclick="window.location.href='rafflea.html'" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Create a Raffle</button>
+                  <button onclick="window.location.href='giveaway.html'" style="border-radius: 5rem; " class="btn btn-outline-success my-2 my-sm-0" type="submit">Create a Giveaway</button>
                 </div>
                 <div id="unsync" style="display: none;">
                   <button data-toggle="modal" data-target="#exampleModalCenter" style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Create a Raffle</button>
@@ -92,7 +84,7 @@
                   <div class="carousel-item">
                     <div class="d-block w-100" alt="Second slide">
                       <center>
-                        <div class="card" style="border: none; max-width: 70%;background-color: #F564A9;">
+                        <div class="card" style="border: none; max-width: 70%;background-color: #6d2a4a;">
                           <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1CwSgYmZewFazZsW348RAQYn1nthiGP3Qa/6/6/1966/artifact.png" alt="Card image cap">
                           <div class="card-footer">
                             <div class="row">
@@ -107,7 +99,7 @@
                   <div class="carousel-item">
                     <div class="d-block w-100" alt="Third slide">
                       <center>
-                        <div class="card" style="border: none; max-width: 70%;background-color: #171813;">
+                        <div class="card" style="border: none; max-width: 70%;background-color: #6d2a4a;">
                           <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton/1/8/153918/artifact.jpg" alt="Card image cap">
                           <div class="card-footer">
                             <div class="row">
@@ -128,7 +120,7 @@
 
     <div style="background-color: #37392E;" >
       <div style="padding-top:1.1rem; padding-bottom: 6.5rem; padding-left: 3.5rem;padding-right: 3.5rem;">
-        <h2 style="color: #F564A9;">Up and Running</h2> </br></br>
+        <h2 style="color: #F564A9;">Up and Running<ion-icon style="color: white; margin-left: 1rem;" size="large" name="information-circle-outline"></ion-icon> </h2></br></br>
           <div class="card-columns" >
             <div id="res">
 
@@ -458,7 +450,7 @@
       // Initiate a permission request
       const requestPermission = (callback) => {
         client
-          .requestPermissions(/*{ network: { type: beacon.NetworkType.GRANADANET } }*/)
+          .requestPermissions({ network: { type: beacon.NetworkType.GRANADANET } })
           .then((permissions) => {
             console.log('permissions', permissions)
             if (callback) {
