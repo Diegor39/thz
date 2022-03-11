@@ -25,7 +25,9 @@ function getfans() {
             if (item.holder.twitter == null) {
                 item.holder.twitter = ''
             }
-            res.innerHTML += `
+        resorder = res.sort()
+
+            resorder.innerHTML += `
             <tr >
                 <td>${item.holder.address}</td>
                 <td>${item.holder.name}</td>

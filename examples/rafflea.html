@@ -86,7 +86,8 @@
         <div style="padding-top:2.1rem; padding-bottom: 6.5rem; padding-left: 3.5rem; padding-right: 3.5rem;">
             <div>
                 <h1>Create a Raffle<ion-icon style="color: white; margin-left: 1rem;" size="large" name="information-circle-outline"></ion-icon> </h1></br></br>
-                <button id="contractCall">Contract Call</button>
+                <p id="TokenId" style="display: none;"></p>
+                <p id="ContractApi" style="display: none;"></p>
                 <div id="first">
 
                     <div>
@@ -106,6 +107,7 @@
                 </br>
                     <span> <h1 id="resToken" style="display: none;"></h1></span> 
                     <p id="resImg" style="display: none;"></p>
+                    
                 </br></br>
                 <button id="toggle_old" style="border-radius: 5rem; display: none;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next Step</button>
                 </div>
@@ -197,12 +199,14 @@
 
                         <div class="card" style="background-color: #313329;">
                             <div class="card-body">
-                                </ion-icon><p class="card-text" style="color: white;"><ion-icon name="alert-circle-outline" style="color: orange;"></ion-icon> With supporting text below as a natural lead-in to additional content.</p>
+                                </ion-icon><p class="card-text" style="color: white;"><ion-icon name="alert-circle-outline" size="small" style="color: orange;"></ion-icon> We need permissions to use your token</p>
                             </div>
                         </div></br>
     
                     </div>
-                    <button style="border-radius: 5rem;" class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="window.location.href='share.html'">Start Raffle</button>
+                    <button id="contractCall2" class="btn btn-outline-success my-2 my-sm-0" >Grant Permissions</button>
+                    <button id="contractCall" class="btn btn-outline-success my-2 my-sm-0">Start Raffle</button>
+                    <button style="border-radius: 5rem; " class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="window.location.href='share.html'">Start Raffle</button>
                     
                 </div>
             </div>   
@@ -585,9 +589,10 @@
       client
         .requestOperation({
           operationDetails: [
+
   {
-    destination: "KT1JRY8iEtzUjhmJ4T5T9MohwDrpSGC5U1ek",
-    kind:  beacon.TezosOperationType.TRANSACTION,
+    destination: "KT1VH21gXgEgyYdgDe1NS4kv9ydp7JuJQ8FD",
+    kind: "transaction",
     amount: 0,
     parameters: {
       entrypoint: "create_raffle",
@@ -595,40 +600,48 @@
         prim: "Pair",
         args: [
           {
-            string: "title"
+            string: document.getElementById('Rafflename').value //TITULO DEL RAFFLE
           },
           {
             prim: "Pair",
             args: [
               {
-                string: "description"
+                string: ""
               },
               {
                 prim: "Pair",
                 args: [
                   {
-                    string: "KT1FkEjAXyRt6yNxwz9KeesijNkZev6eg6fk"
+                    int: "1646762400"
                   },
                   {
                     prim: "Pair",
                     args: [
                       {
-                        int: "14"
+                        string: document.getElementById("ContractApi").textContent
                       },
                       {
                         prim: "Pair",
                         args: [
                           {
-                            int: "1"
+                            int: document.getElementById("TokenId").textContent
                           },
                           {
                             prim: "Pair",
                             args: [
                               {
-                                int: "100"
+                                int:  "1"
                               },
                               {
-                                int: "1000000"
+                                prim: "Pair",
+                                args: [
+                                  {
+                                    int: document.getElementById('Rcost2').textContent, //Costo
+                                  },
+                                  {
+                                    int: "1000000"
+                                  }
+                                ]
                               }
                             ]
                           }
@@ -650,6 +663,51 @@
         .catch((error) => console.log(error))
     })
 
+    document.getElementById('contractCall2').addEventListener('click', () => {
+      client
+        .requestOperation({
+          operationDetails: [
+  {
+    destination: document.getElementById("ContractApi").textContent, // CONTRATO DE TOKEN (API)
+    kind: "transaction",
+    amount: document.getElementById('Rcost2').textContent ,
+    parameters: {
+      entrypoint: "update_operators",
+      value: [
+        {
+          prim: "Left",
+          args: [
+            {
+              prim: "Pair",
+              args: [
+                {
+                  string: document.getElementById("activeAccount").textContent //CARTERA DEL QUE HACE EL RAFFLE 
+                },
+                {
+                  prim: "Pair",
+                  args: [
+                    {
+                      string: "KT1VH21gXgEgyYdgDe1NS4kv9ydp7JuJQ8FD" // NUESTRO CONTRATO
+                    },
+                    {
+                      int: document.getElementById("TokenId").textContent // TOKEN ID
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]
+        })
+        .then((response) => console.log(response))
+        .catch((error) => console.log(error))
+        //document.getElementById('contractCall').click()
+        //
+    })
     // Add event listener to the button
     document.getElementById('2requests').addEventListener('click', () => {
       setTimeout(sendToSelf, 0)
