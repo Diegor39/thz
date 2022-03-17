@@ -15,8 +15,7 @@
     <title>Hello, world!</title>
     <style>
          h1 {
-            font-family: 'Assistant', sans-serif;
-
+            font-family: 'Merriweather', serif;
             }
             h2 {
              font-family: 'Assistant', serif;
@@ -30,11 +29,62 @@
         p {
             font-family: 'Assistant', serif;
         }
+        * {
+  margin:0;
+  padding:0;
+  color:#fff;
+  font-family:Arial;
+}
+
+div#imagen {
+  width: 300px;
+  height: 200px;
+  background-size: cover;/*sólo para ejemplo*/
+  background-image: url("https://www.heleneblanck.fr/_nuxt/image/76fafb.jpeg");
+  margin: 30px auto;
+}
+
+div#info {
+  position:absolute;
+  overflow:hidden;
+  width: 300px;
+  height: 200px;
+  background-color: rgba(31, 31, 31, 0.9);
+  opacity:0;
+  transition: opacity 0.3s;
+}
+
+div#imagen:hover div#info {
+  opacity:1;
+}
+
+p#headline {
+  position: absolute;
+  font-size: 1.5rem;
+  margin-left: -75px;
+  margin-top: 15px;
+  transition: margin-left 0.3s;
+}
+
+div#imagen:hover p#headline {
+  margin-left: 115px;
+}
+
+p#descripcion {
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 200px;
+  transition: margin-top 0.4s;
+}
+
+div#imagen:hover p#descripcion {
+  margin-top: 75px;
+}
     </style>
   </head>
-  <body style="background-color: black;">
+  <body style="background-color: #080808;">
     <section>
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black;">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #080808;">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -43,8 +93,8 @@
               <ul class="navbar-nav mr-auto">
                 <center><li class="nav-item active"><a class="nav-item nav-link" id="activeAccount"></a></li></center>
               </ul>
-              <button id="requestPermission" class="btn btn-outline-warning my-2 my-sm-0" type="submit">Sync</button>
-              <button id="reset"  class="btn btn-outline-primary my-2 my-sm-0">Disconnect</button>
+              <button id="requestPermission" class="btn btn-outline-warning my-2 my-sm-0" style="border-radius: 5rem;">Sync</button>
+              <button id="reset"  class="btn btn-outline-primary my-2 my-sm-0" style="border-radius: 5rem;">Disconnect</button>
             </div>
           </nav>
           <center>
@@ -56,30 +106,55 @@
     </section>
 
 
+
+
     <section style="padding-top:3.1rem;padding-bottom:3.1rem;">
         <div>
             <center><h1 style="color: white; font-size: 5rem; width: 55%;">The Blind Gallery</h1></center>
             <center><div style="padding-top:2.1rem;">
-                <button type="button" class="btn btn-outline-primary" style="border-radius: 5rem;">Mint Pass</button>
-                <button type="button" class="btn btn-outline-success" style="border-radius: 5rem;">Gallery</button>
-                <button type="button" class="btn btn-outline-danger" style="border-radius: 5rem;">FAQ</button>
+                <button type="button" class="btn btn-outline-success" style="border-radius: 5rem; color: #4b9b79; border-color: #4b9b79;">Mint Pass</button>
+                <button type="button" class="btn btn-outline-danger" style="border-radius: 5rem;color: #bb4545; border-color: #bb4545;">Gallery</button>
+                <button type="button" class="btn btn-outline-primary " style="border-radius: 5rem; color: #51acad; border-color: #51acad;">FAQ</button>
             </div></center>
         </div>
         <center><h3 style="color: white; width: 80%; padding-top:4.1rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in massa in elit efficitur placerat in quis turpis. Cras vel lacus velit. Ut vitae nulla in sapien fermentum ultricies vel eleifend urna.</h3></center>
-        <div class="container">
-            <div class="row mx-auto">
+        <section style="padding-top:11.1rem;">
+            <div class="container">
+                <center><h1 style="color: white; font-size: 4rem; width: 55%; margin-top: 3rem;">Mint Pass</h1></center>
+                <div class="row">
+                    <div class="col">
+                        <center><img style="width: 70%;" src="https://collective.proof.xyz/grails-teaser.svg" alt=""></center>
+                    </div>
+                    <div class="col" style="margin-top: 5rem;">
+                        <h4 style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </h4>
+                        <button type="button" class="btn btn-outline-warning" style="border-radius: 5rem;">Mint</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div style="margin: 164px; padding-top:0.1rem;" style="padding-top:7.1rem;">
+            <div class="row mx-auto col">
+
+                <div id="imagen">
+                    <div id="info">
+                      <p id="headline">Lorem Ipsum</p>
+                      <p id="descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente voluptates.</p>
+                    </div>
+                </div>
+
                 <div class="col " style="padding-top:7.1rem;">
                     <div class="card mx-auto" style="border-style: hidden;">
                         <img class="card-img-top" src="https://www.heleneblanck.fr/_nuxt/image/76fafb.jpeg" alt="Card image cap">
-                        <div class="card-body" style="background-color: black;">
+                        <div class="card-body" style="background-color: #080808;">
                           <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                           <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                         </div>
                     </div>
+
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://www.heleneblanck.fr/_nuxt/image/c2a296.jpeg" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -88,7 +163,7 @@
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://www.heleneblanck.fr/_nuxt/image/7801c6.jpeg" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -97,7 +172,7 @@
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton/6/6/644266/artifact.gif" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -106,7 +181,7 @@
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1Ju5sgywKXoE3v4nCVGdzWSueuDUF9mRsa/0/3/3/artifact.jpg" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -115,7 +190,7 @@
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton/9/8/694398/artifact.jpg" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -124,7 +199,7 @@
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton/2/3/686623/artifact.jpg" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -133,7 +208,7 @@
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton/9/2/643592/artifact.png" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -142,7 +217,7 @@
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1L7GvUxZH5tfa6cgZKnH6vpp2uVxnFVHKu/1/1/2811/artifact.png" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -151,7 +226,7 @@
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://ipfs.io/ipfs/QmPsZM66erCCp8VmCUtEmhGFqG5FcFGibFkkeWFXR5nmiP" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -162,7 +237,7 @@
                 <div class="col" style="padding-top:20.1rem;">
                     <div class="card mx-auto" style="border-style: hidden;">
                         <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1KT4x72W6rNicPFKBQ4Y1FcXXbxGtpoacp/0/1/1/artifact.jpg" alt="Card image cap">
-                        <div class="card-body" style="background-color: black;">
+                        <div class="card-body" style="background-color: #080808;">
                             <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                             <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                         </div>
@@ -170,7 +245,7 @@
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1ARNYDh4BEXFBVC3mH2mmy4TtdXgCvWr73/5/9/59/artifact.jpg" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -179,7 +254,7 @@
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton/2/8/626428/artifact.jpg" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -188,7 +263,7 @@
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton/4/5/688745/artifact.png" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -197,7 +272,7 @@
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton/1/3/213413/artifact.jpg" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -206,7 +281,7 @@
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1WVNFAdQMR8764Tf3UUTBo7WXcja5KHdPw/1/0/10/artifact.png" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -215,7 +290,7 @@
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton/0/8/508/artifact.png" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -224,7 +299,7 @@
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://ipfs.io/ipfs/QmfTd3uzsWo31nj8Ef7TUMtYnF9xxGBjY3SoeKEmBCSXYh" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -233,7 +308,7 @@
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://ipfs.io/ipfs/QmP5SYbAeEKN3GAa57gBbhvcoasYapXUhSQbyKvawhTjna" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -242,7 +317,7 @@
                     <div style="padding-top:7.1rem;">
                         <div class="card mx-auto" style="border-style: hidden;">
                             <img class="card-img-top" src="https://www.heleneblanck.fr/_nuxt/image/7801c6.jpeg" alt="Card image cap">
-                            <div class="card-body" style="background-color: black;">
+                            <div class="card-body" style="background-color: #080808;">
                                 <h1 class="card-title" style="color: white;">Lorem Ipsum</h1>
                                 <p class="card-text" style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </p>
                             </div>
@@ -257,24 +332,9 @@
 
     <section>
         <div class="container">
-            <center><h1 style="color: white; font-size: 4rem; width: 55%; margin-top: 3rem;">Mint Pass</h1></center>
-            <div class="row">
-                <div class="col">
-                    <center><img style="width: 70%;" src="https://collective.proof.xyz/grails-teaser.svg" alt=""></center>
-                </div>
-                <div class="col" style="margin-top: 5rem;">
-                    <h4 style="color: white;">Etiam lacinia ante magna, eget volutpat leo blandit in. Nulla facilisi. Quisque congue imperdiet eros. Nam non egestas nisl, finibus euismod mauris. </h4>
-                    <button type="button" class="btn btn-outline-warning">Mint</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
             <center><h1 style="color: white; font-size: 4rem; width: 55%; margin-top: 3rem;">FAQ</h1></center>
             <div id="accordion" style="margin-bottom: 13rem;">
-                <div class="card" style="background-color: black;">
+                <div class="card" style="background-color: #080808;">
                   <div class="card-header" id="headingOne">
                     <h5 class="mb-0">
                       <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -289,7 +349,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="card" style="background-color: black;">
+                <div class="card" style="background-color: #080808;">
                   <div class="card-header" id="headingTwo">
                     <h5 class="mb-0">
                       <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -302,7 +362,7 @@
                         Quisque mollis purus vitae velit aliquet, nec malesuada orci aliquam. Quisque nec risus id velit viverra aliquet. Sed commodo eros id ligula convallis sodales. Curabitur lorem velit, aliquet malesuada ligula at, dapibus fermentum metus. Donec sodales ornare urna ultrices tempor. Praesent cursus luctus eros ac pharetra. Nulla facilisi.                    </div>
                   </div>
                 </div>
-                <div class="card" style="background-color: black;">
+                <div class="card" style="background-color: #080808;">
                   <div class="card-header" id="headingThree">
                     <h5 class="mb-0">
                       <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -322,9 +382,11 @@
 
 
     <section>
-        <div class="container" style="padding-bottom: 1.1rem;">
-                <p style="color: white;">2022, Blind Gallery by WGMI Studios</p>
-                <p style="color: white; text-align: right;">WGMI Studios all rigths reserved 2022</p>
+        <div class="row" style="padding-bottom: 1.1rem; background-image: url('https://www.heleneblanck.fr/_nuxt/img/footer.ea32683.png?0.4712767864403582');">
+                <div class="col"><CENter><p style="color: white;">2022, Blind Gallery by WGMI Studios</p></CENter></div>
+                <div class="col"> <center><p style="color: white;">WGMI Studios all rigths reserved 2022</p></center></div>
+                <div class="col"><center><p style="color: white; text-align: right;">Privacy policy and terms of use.</p></center></div>
+                
         </div>
     </section>
 
