@@ -172,12 +172,8 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
 
     <section>
         <div class="container">
-            <h1>Exchange your min pass</h1>
-            <div class="row" style="margin-top: 2rem; border-bottom: #080808; border-bottom-style: solid;">
-                <div class="col"><h2>Available: 10</h2></center></div>
-                <div class="col"><center><h2>Selected: 1</h2></center></div>
-                <div class="col"><center><button class="btn btn-outline-primary " style="border-radius: 10rem;">Exchange</button></center></div>
-            </div>      
+            <center><h1 style="color: #080808; font-size: 5rem; width: 55%;" id="fadeshow1">Blind Gallery</h1></center>
+            <h3 style="margin-top: 2rem;">Exchange your mint pass</h3>    
         </div>
     </section>
 
@@ -187,45 +183,14 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
                 <div class="card" style="background-color: whitesmoke;">
                   <img class="card-img-top" src="https://www.heleneblanck.fr/_nuxt/image/76fafb.jpeg" alt="Card image cap">
                   <div class="card-body">
-                    <input id="inputnum1" style="color: #080808; display: none;" type="number" min="0" max="10">
-                    <div id="tok1" style="display: none;">
-                        <div class="row" >
-                            <div class="col">
-                                <center><button type="button" class="btn btn-outline-primary " style="border-radius: 10rem;" onclick="stepDown1();">-</button></center>
-                            </div>
-                            <div class="col">
-                                <center><p id="numOT1">1</p></center>
-                                <p></p>
-                            </div>
-                            <div class="col">
-                                <center><button type="button" class="btn btn-outline-primary " style="border-radius: 10rem;" onclick="stepUp1();">+</button></center>
-                            </div>
-                        </div>
-                        <button id="cancel1" type="button" class="btn btn-outline-danger " style="border-radius: 1rem; width: 100%;" onclick="canT1();">Cancel</button>
-                    </div>
-                    <button id="select1" type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;" onclick="conT1();">Select</button>
+                    <button id="select1" type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;" onclick="conT1();">Mint</button>
                   </div>
                 </div>
                 <div class="card" style="background-color: whitesmoke;">
                     <img class="card-img-top" src="https://www.heleneblanck.fr/_nuxt/image/c2a296.jpeg" alt="Card image cap">
                     <div class="card-body">
                       <input id="inputnum2" style="color: #080808; display: none;" type="number" min="0" max="10">
-                      <div id="tok2" style="display: none;">
-                          <div class="row" >
-                              <div class="col">
-                                  <center><button type="button" class="btn btn-outline-primary " style="border-radius: 10rem;" onclick="stepDown2();">-</button></center>
-                              </div>
-                              <div class="col">
-                                  <center><p id="numOT2">1</p></center>
-                                  <p></p>
-                              </div>
-                              <div class="col">
-                                  <center><button type="button" class="btn btn-outline-primary " style="border-radius: 10rem;" onclick="stepUp2();">+</button></center>
-                              </div>
-                          </div>
-                          <button id="cancel2" type="button" class="btn btn-outline-danger " style="border-radius: 1rem; width: 100%;" onclick="canT2();">Cancel</button>
-                      </div>
-                      <button id="select2" type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;" onclick="conT2();">Select</button>
+                      <button id="select2" type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;" onclick="conT2();">Mint</button>
                     </div>
                 </div>
 
@@ -234,13 +199,13 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
                 <div class="card" style="background-color: whitesmoke;">
                   <img class="card-img-top" src="https://www.heleneblanck.fr/_nuxt/image/7801c6.jpeg" alt="Card image cap">
                   <div class="card-body">
-                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Select</button>
+                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Mint</button>
                   </div>
                 </div>
                 <div class="card" style="background-color: whitesmoke;">
                     <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton/6/6/644266/artifact.gif" alt="Card image cap">
                     <div class="card-body">
-                        <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Select</button>
+                        <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Mint</button>
                     </div>
                   </div>
             </div>
@@ -248,25 +213,25 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
                 <div class="card" style="background-color: whitesmoke;">
                   <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1Ju5sgywKXoE3v4nCVGdzWSueuDUF9mRsa/0/3/3/artifact.jpg" alt="Card image cap">
                   <div class="card-body">
-                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Select</button>
+                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Mint</button>
                   </div>
                 </div>
                 <div class="card" style="background-color: whitesmoke;">
                   <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton/9/8/694398/artifact.jpg" alt="Card image cap">
                   <div class="card-body">
-                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Select</button>
+                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Mint</button>
                   </div>
                 </div>
                 <div class="card" style="background-color: whitesmoke;">
                   <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton/9/2/643592/artifact.png" alt="Card image cap">
                   <div class="card-body">
-                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Select</button>
+                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Mint</button>
                   </div>
                 </div>
                 <div class="card" style="background-color: whitesmoke;">
                     <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1L7GvUxZH5tfa6cgZKnH6vpp2uVxnFVHKu/1/1/2811/artifact.png" alt="Card image cap">
                     <div class="card-body">
-                        <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Select</button>
+                        <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Mint</button>
                     </div>
                   </div>
             </div>
@@ -274,25 +239,25 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
                 <div class="card" style="background-color: whitesmoke;">
                   <img class="card-img-top" src="https://ipfs.io/ipfs/QmPsZM66erCCp8VmCUtEmhGFqG5FcFGibFkkeWFXR5nmiP" alt="Card image cap">
                   <div class="card-body">
-                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Select</button>
+                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Mint</button>
                   </div>
                 </div>
                 <div class="card" style="background-color: whitesmoke;">
                   <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1KT4x72W6rNicPFKBQ4Y1FcXXbxGtpoacp/0/1/1/artifact.jpg" alt="Card image cap">
                   <div class="card-body">
-                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Select</button>
+                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Mint</button>
                   </div>
                 </div>
                 <div class="card" style="background-color: whitesmoke;">
                   <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1ARNYDh4BEXFBVC3mH2mmy4TtdXgCvWr73/5/9/59/artifact.jpg" alt="Card image cap">
                   <div class="card-body">
-                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Select</button>
+                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Mint</button>
                   </div>
                 </div>
                 <div class="card" style="background-color: whitesmoke;">
                     <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton/2/8/626428/artifact.jpg" alt="Card image cap">
                     <div class="card-body">
-                        <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Select</button>
+                        <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Mint</button>
                     </div>
                   </div>
             </div>
@@ -300,25 +265,25 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
                 <div class="card" style="background-color: whitesmoke;">
                   <img class="card-img-top" src="https://www.heleneblanck.fr/_nuxt/image/76fafb.jpeg" alt="Card image cap">
                   <div class="card-body">
-                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Select</button>
+                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Mint</button>
                   </div>
                 </div>
                 <div class="card" style="background-color: whitesmoke;">
                   <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton/2/8/626428/artifact.jpg" alt="Card image cap">
                   <div class="card-body">
-                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Select</button>
+                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Mint</button>
                   </div>
                 </div>
                 <div class="card" style="background-color: whitesmoke;">
                   <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton/4/5/688745/artifact.png" alt="Card image cap">
                   <div class="card-body">
-                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Select</button>
+                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Mint</button>
                   </div>
                 </div>
                 <div class="card" style="background-color: whitesmoke;">
                     <img class="card-img-top" src="https://assets.objkt.media/file/assets-001/KT1WVNFAdQMR8764Tf3UUTBo7WXcja5KHdPw/1/0/10/artifact.png" alt="Card image cap">
                     <div class="card-body">
-                        <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Select</button>
+                        <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Mint</button>
                     </div>
                   </div>
             </div>
