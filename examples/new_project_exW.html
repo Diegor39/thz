@@ -14,6 +14,17 @@
 
     <title>Hello, world!</title>
     <style>
+                    @media only screen and (max-width: 1026px) {
+      #fadeshow1 {
+        display: none;
+      }
+    }
+
+    @media only screen and (min-width: 1026px) {
+      #fadeshow2 {
+        display: none;
+      }
+    }
         h1 {
            font-family: 'Merriweather', serif;
            color: #080808;
@@ -170,9 +181,10 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
           </center>
     </section>
 
-    <section>
+    <section style="padding-top:3.1rem;padding-bottom:3.1rem;">
         <div class="container">
             <center><h1 style="color: #080808; font-size: 5rem; width: 55%;" id="fadeshow1">Blind Gallery</h1></center>
+            <center><h1 style="color: #080808; font-size: 4.5rem; width: 80%;" id="fadeshow2">Blind Gallery</h1></center>
             <h3 style="margin-top: 2rem;">Exchange your mint pass</h3>    
         </div>
     </section>
@@ -199,7 +211,7 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
                 <div class="card" style="background-color: whitesmoke;">
                   <img class="card-img-top" src="https://www.heleneblanck.fr/_nuxt/image/7801c6.jpeg" alt="Card image cap">
                   <div class="card-body">
-                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%; font-size: 1.3rem;">Mint</button>
+                    <button type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;">Mint</button>
                   </div>
                 </div>
                 <div class="card" style="background-color: whitesmoke;">
@@ -291,15 +303,33 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
 
     </section>
 
-    <section>
+    <section id="fadeshow1">
         <div  style="padding-bottom: 1.1rem; background-image: url('https://www.heleneblanck.fr/_nuxt/img/footer.ea32683.png?0.4712767864403582');">
-            <ion-icon size="large" name="logo-twitter" style="color: #F6EFEE; margin-top: 3rem; margin-left: 3rem;"></ion-icon>
-            <div class="row" style="width: 90%;">
+            <div class="row" style="width: 100%;">
+                <div class="col"><ion-icon size="large" name="logo-twitter" style="color: #F6EFEE; margin-top: 2rem; margin-left: 3rem;"></ion-icon></div>
+                
+                <div class="col"><p style="color: #F6EFEE;margin-top: 2rem ;text-align: right; margin-right: 3rem;">Powered by</p></div>
+            </div>
+
+            <div class="row" style="width: 100%;">
                 <div class="col-9"><p style="color: #F6EFEE; margin-top: 2rem; margin-left: 3rem;">2022, Blind Gallery by WGMI Studios</p></div>              
                 <div class="col-3 row">
                     <div class="col"><center><p style="color: #F6EFEE;margin-top: 2rem ;">Privacy policy.</p></center></div>
                     <div class="col"><p style="color: #F6EFEE;margin-top: 2rem ;text-align: right;">Terms of use.</p></div>
                 </div> 
+            </div>
+                
+                
+        </div>
+    </section>
+
+    <section id="fadeshow2">
+        <div  style="padding-bottom: 1.1rem; background-image: url('https://www.heleneblanck.fr/_nuxt/img/footer.ea32683.png?0.4712767864403582');">
+            <ion-icon size="large" name="logo-twitter" style="color: #F6EFEE; margin-top: 3rem; margin-left: 3rem;"></ion-icon>
+            <div class="" style="width: 90%;">
+                <div class=""><p style="color: #F6EFEE;margin-top: 2rem ; margin-left: 3rem;">Privacy policy.</p></div>
+                <div class=""><p style="color: #F6EFEE;margin-top: 2rem ; margin-left: 3rem;">Terms of use.</p></div> 
+                <div class=""><p style="color: #F6EFEE; margin-top: 2rem; margin-left: 3rem;">2022, Blind Gallery by WGMI Studios</p></div>          
             </div>
                 
                 
