@@ -1,230 +1,368 @@
 import { Serializer } from '../../Serializer'
-import { NetworkType, P2PPairingRequest, PostMessagePairingRequest } from '../..'
-import { generateGUID } from '../../utils/generate-uuid'
-import { Logger } from '../../utils/Logger'
-import { isAndroid, isIOS } from '../../utils/platform'
-import { closeAlerts } from './Alert'
-import { Pairing, WalletType } from './Pairing'
-import { getQrData } from '../../utils/qr'
+import {
+  ExtensionMessage,
+  ExtensionMessageTarget,
+  NetworkType,
+  P2PPairingRequest,
+  PostMessagePairingRequest
+} from '../..'
+import { windowRef } from '../../MockWindow'
 import { getTzip10Link } from '../../utils/get-tzip10-link'
-
-const logger = new Logger('Alert')
+import { isAndroid, isIOS } from '../../utils/platform'
+import { PostMessageTransport } from '../../transports/PostMessageTransport'
+import { desktopList, extensionList, iOSList, webList } from './wallet-lists'
 
 const serializer = new Serializer()
 
-export const preparePairingAlert = async (
-  shadowRoot: ShadowRoot,
-  pairingPayload: {
-    p2pSyncCode: () => Promise<P2PPairingRequest>
-    postmessageSyncCode: () => Promise<PostMessagePairingRequest>
-    preferredNetwork: NetworkType
+const defaultExtensions = [
+  'ookjlbkiijinhpmnjffcofjonbfbgaoc', // Thanos
+  'gpfndedineagiepkpinficbcbbgjoenn' // Beacon
+]
+
+export enum Platform {
+  DESKTOP,
+  IOS,
+  ANDROID
+}
+
+export enum WalletType {
+  IOS = 'ios',
+  ANDROID = 'android',
+  EXTENSION = 'extension',
+  DESKTOP = 'desktop',
+  WEB = 'web'
+}
+
+export interface AppBase {
+  key: string
+  name: string
+  shortName: string
+  color: string
+  logo: string
+}
+
+export interface ExtensionApp extends AppBase {
+  id: string
+  link: string
+}
+
+export interface WebApp extends AppBase {
+  links: {
+    [NetworkType.MAINNET]: string
+    [NetworkType.DELPHINET]?: string
+    [NetworkType.EDONET]?: string
+    [NetworkType.FLORENCENET]?: string
+    [NetworkType.GRANADANET]?: string
+    [NetworkType.HANGZHOUNET]?: string
+    [NetworkType.ITHACANET]?: string
+    [NetworkType.CUSTOM]?: string
   }
-): Promise<void> => {
-  const info = await Pairing.getPairingInfo(
-    pairingPayload,
-    async (_walletType, _wallet, keepOpen) => {
-      if (keepOpen) {
-        return
-      }
-      await closeAlerts()
+}
+
+export interface DesktopApp extends AppBase {
+  deepLink: string
+}
+
+export interface App extends AppBase {
+  universalLink: string
+  deepLink?: string
+}
+
+export interface PairingAlertWallet {
+  key: string
+  name: string
+  shortName?: string
+  color?: string
+  logo?: string
+  enabled: boolean
+  clickHandler(): void
+}
+
+export interface PairingAlertButton {
+  title: string
+  text: string
+  clickHandler(): void
+}
+
+export interface PairingAlertList {
+  title: string
+  type: WalletType
+  wallets: PairingAlertWallet[]
+}
+
+export interface PairingAlertInfo {
+  walletLists: PairingAlertList[]
+  buttons: PairingAlertButton[]
+}
+
+export type StatusUpdateHandler = (
+  walletType: WalletType,
+  app?: PairingAlertWallet,
+  keepOpen?: boolean
+) => void
+
+/**
+ * @internalapi
+ *
+ */
+export class Pairing {
+  public static async getPlatfrom(): Promise<Platform> {
+    return isAndroid(window) ? Platform.ANDROID : isIOS(window) ? Platform.IOS : Platform.DESKTOP
+  }
+
+  public static async getPairingInfo(
+    pairingPayload: {
+      p2pSyncCode: () => Promise<P2PPairingRequest>
+      postmessageSyncCode: () => Promise<PostMessagePairingRequest>
+      preferredNetwork: NetworkType
     },
-    async () => {
-      switchPlatform()
-    }
-  )
+    statusUpdateHandler: StatusUpdateHandler,
+    mobileWalletHandler: (pairingCode: string) => Promise<void>,
+    platform?: Platform
+  ): Promise<PairingAlertInfo> {
+    const activePlatform = platform ?? (await Pairing.getPlatfrom())
 
-  const container = shadowRoot.getElementById(`pairing-container`)
-  if (!container) {
-    throw new Error('container not found')
+    const pairingCode = pairingPayload.p2pSyncCode
+    const postmessageSyncCode = pairingPayload.postmessageSyncCode
+    const preferredNetwork = pairingPayload.preferredNetwork
+
+    switch (activePlatform) {
+      case Platform.DESKTOP:
+        return Pairing.getDesktopPairingAlert(
+          pairingCode,
+          statusUpdateHandler,
+          postmessageSyncCode,
+          mobileWalletHandler,
+          preferredNetwork
+        )
+      case Platform.IOS:
+        return Pairing.getIOSPairingAlert(pairingCode, statusUpdateHandler, preferredNetwork)
+      case Platform.ANDROID:
+        return Pairing.getAndroidPairingAlert(pairingCode, statusUpdateHandler, preferredNetwork)
+
+      default:
+        throw new Error('platform unknown')
+    }
   }
 
-  const buttonListWrapper = document.createElement('span')
-  container.appendChild(buttonListWrapper)
+  private static async getDesktopPairingAlert(
+    pairingCode: () => Promise<P2PPairingRequest>,
+    statusUpdateHandler: StatusUpdateHandler,
+    postmessageSyncCode: () => Promise<PostMessagePairingRequest>,
+    mobileWalletHandler: (pairingCode: string) => Promise<void>,
+    network: NetworkType
+  ): Promise<PairingAlertInfo> {
+    const availableExtensions = await PostMessageTransport.getAvailableExtensions()
 
-  info.buttons.forEach(async (button) => {
-    const randomId = await generateGUID()
-
-    const x = `
-    <div class="beacon-list__title">${button.title}</div>
-		<button class="beacon-modal__button connect__btn">${button.text}</button>
-		 `
-
-    const el = document.createElement('a')
-    el.id = `button_${randomId}`
-    el.innerHTML = x
-
-    buttonListWrapper.appendChild(el)
-
-    const buttonEl = shadowRoot.getElementById(el.id)
-
-    if (buttonEl) {
-      buttonEl.addEventListener('click', async () => {
-        button.clickHandler()
-      })
-    }
-  })
-
-  info.walletLists.forEach((list) => {
-    const listWrapperEl = document.createElement('div')
-    listWrapperEl.classList.add('beacon-list__wrapper')
-
-    container.appendChild(listWrapperEl)
-
-    const listTitleEl = document.createElement('div')
-    listTitleEl.classList.add('beacon-list__title')
-    listTitleEl.innerHTML = list.title
-    listWrapperEl.appendChild(listTitleEl)
-
-    const listEl = document.createElement('span')
-    listWrapperEl.appendChild(listEl)
-
-    list.wallets.forEach(async (wallet) => {
-      const altTag = `Open in ${wallet.name}`
-      const walletKey = wallet.key
-      const x = `
-			<a tabindex="0" alt="${altTag}" id="wallet_${walletKey}"
-			 target="_blank" class="beacon-selection__list${wallet.enabled ? '' : ' disabled'}">
-			 <div class="beacon-selection__name">${wallet.name}
-			 ${wallet.enabled ? '' : '<p>Not installed</p>'}
-			 </div>
-			 ${
-         wallet.logo
-           ? `<div>
-			 <img class="beacon-selection__img" src="${wallet.logo}"/>
-			 </div>`
-           : '<svg class="beacon-selection__img" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="wallet" class="svg-inline--fa fa-wallet fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><path d="M376.2,181H152.9c-5.2,0-9.4-4.2-9.4-9.4s4.2-9.4,9.4-9.4h225c5.2,0,9.4-4.2,9.4-9.4c0-15.5-12.6-28.1-28.1-28.1H143.5c-20.7,0-37.5,16.8-37.5,37.5v187.5c0,20.7,16.8,37.5,37.5,37.5h232.7c16.4,0,29.8-12.6,29.8-28.1v-150C406,193.6,392.7,181,376.2,181z M349.8,302.9c-10.4,0-18.8-8.4-18.8-18.8s8.4-18.8,18.8-18.8s18.8,8.4,18.8,18.8S360.1,302.9,349.8,302.9z"/></svg>'
-       }
-			</a>
-			 `
-
-      const el = document.createElement('span')
-      el.innerHTML = x
-
-      listEl.appendChild(el)
-
-      const walletEl = shadowRoot.getElementById(`wallet_${walletKey}`)
-
-      const completeHandler = async (event?: KeyboardEvent) => {
-        if (event && event.key !== 'Enter') {
-          return
-        }
-
-        wallet.clickHandler()
-        const modalEl: HTMLElement | null = shadowRoot.getElementById('beacon-modal__content')
-        if (modalEl && list.type !== WalletType.EXTENSION && list.type !== WalletType.IOS) {
-          modalEl.innerHTML = `${
-            wallet.logo
-              ? `<p class="beacon-alert__title">Establishing Connection..</p>
-              <div id="beacon-toast-loader" class="progress-line"></div>
-              <div class="beacon--selected__container">
-               <img class="beacon-selection__img" src="${wallet.logo}"/>
-               <div class="beacon--selection__name__lg">${wallet.name}</div>
-              </div>`
-              : ''
-          }
-          `
-        }
-      }
-
-      if (walletEl) {
-        walletEl.addEventListener('click', () => completeHandler())
-        walletEl.addEventListener('keydown', completeHandler)
+    availableExtensions.forEach((ext) => {
+      const index = defaultExtensions.indexOf(ext.id)
+      if (index >= 0) {
+        defaultExtensions.splice(index, 1)
       }
     })
-  })
 
-  const qr: HTMLElement | null = shadowRoot.getElementById(`beacon--qr__container`)
-  const copyButton: HTMLElement | null = shadowRoot.getElementById(`beacon--qr__copy`)
-  const titleEl: HTMLElement | null = shadowRoot.getElementById(`beacon-title`)
+    return {
+      walletLists: [
+        {
+          title: 'Browser Extensions',
+          type: WalletType.EXTENSION,
+          wallets: [
+            ...availableExtensions.map((app) => {
+              const ext = extensionList.find((extEl) => extEl.id === app.id)
 
-  const platform = isAndroid(window) ? 'android' : isIOS(window) ? 'ios' : 'desktop'
-
-  const mainText: HTMLElement | null = shadowRoot.getElementById(`beacon-main-text`)
-  const walletList: HTMLElement | null = shadowRoot.getElementById(`pairing-container`)
-
-  const switchButton: HTMLElement | null = shadowRoot.getElementById(`beacon--switch__container`)
-
-  // if (mainText && walletList && switchButton && copyButton && qr && titleEl) {
-  const fn = async () => {
-    const code = pairingPayload
-      ? await serializer.serialize(await pairingPayload.p2pSyncCode())
-      : ''
-    navigator.clipboard.writeText(code).then(
-      () => {
-        if (copyButton) {
-          copyButton.innerText = 'Copied'
+              return {
+                key: ext?.key ?? app.id,
+                name: app.name ?? ext?.name,
+                logo: app.iconUrl ?? ext?.logo,
+                shortName: app.shortName ?? ext?.shortName,
+                color: app.color ?? ext?.color,
+                enabled: true,
+                async clickHandler(): Promise<void> {
+                  if (postmessageSyncCode) {
+                    const postmessageCode = await serializer.serialize(await postmessageSyncCode())
+                    const message: ExtensionMessage<string> = {
+                      target: ExtensionMessageTarget.EXTENSION,
+                      payload: postmessageCode,
+                      targetId: app.id
+                    }
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    windowRef.postMessage(message as any, windowRef.location.origin)
+                  }
+                  statusUpdateHandler(WalletType.EXTENSION, this)
+                }
+              }
+            }),
+            ...extensionList
+              .filter((app) => defaultExtensions.some((extId) => extId === app.id))
+              .map((app) => ({
+                key: app.key,
+                name: app.name,
+                shortName: app.shortName,
+                color: app.color,
+                logo: app.logo,
+                enabled: false,
+                clickHandler: (): void => {
+                  // Don't do anything
+                }
+              }))
+          ].sort((a, b) => a.key.localeCompare(b.key))
+        },
+        {
+          title: 'Desktop & Web Wallets',
+          type: WalletType.DESKTOP,
+          wallets: [
+            ...desktopList.map((app) => ({
+              key: app.key,
+              name: app.name,
+              shortName: app.shortName,
+              color: app.color,
+              logo: app.logo,
+              enabled: true,
+              async clickHandler(): Promise<void> {
+                const code = await serializer.serialize(await pairingCode())
+                const link = getTzip10Link(app.deepLink, code)
+                window.open(link, '_blank')
+                statusUpdateHandler(WalletType.DESKTOP, this, true)
+              }
+            })),
+            ...(await Pairing.getWebList(pairingCode, statusUpdateHandler, network))
+          ].sort((a, b) => a.key.localeCompare(b.key))
+        },
+        {
+          title: 'Mobile Wallets',
+          type: WalletType.IOS,
+          wallets: [
+            ...iOSList.map((app) => ({
+              key: app.key,
+              name: app.name,
+              shortName: app.shortName,
+              color: app.color,
+              logo: app.logo,
+              enabled: true,
+              async clickHandler(): Promise<void> {
+                const code = await serializer.serialize(await pairingCode())
+                mobileWalletHandler(code)
+                statusUpdateHandler(WalletType.IOS, this, true)
+              }
+            }))
+          ].sort((a, b) => a.key.localeCompare(b.key))
         }
-        logger.log('Copying to clipboard was successful!')
-      },
-      (err) => {
-        logger.error('Could not copy text to clipboard: ', err)
-      }
-    )
+      ],
+      buttons: []
+    }
   }
 
-  let qrShown = false
+  private static async getIOSPairingAlert(
+    pairingCode: () => Promise<P2PPairingRequest>,
+    statusUpdateHandler: StatusUpdateHandler,
+    network: NetworkType
+  ): Promise<PairingAlertInfo> {
+    return {
+      walletLists: [
+        {
+          title: 'Mobile Wallets',
+          type: WalletType.IOS,
+          wallets: iOSList
+            .map((app) => ({
+              key: app.key,
+              name: app.name,
+              shortName: app.shortName,
+              color: app.color,
+              logo: app.logo,
+              enabled: true,
+              async clickHandler(): Promise<void> {
+                const code = await serializer.serialize(await pairingCode())
+                const link = getTzip10Link(app.deepLink ?? app.universalLink, code)
 
-  const showPlatform = async (type: 'ios' | 'android' | 'desktop' | 'none'): Promise<void> => {
-    const platformSwitch: HTMLElement | null = shadowRoot.getElementById(`beacon-switch`)
-    if (platformSwitch) {
-      platformSwitch.innerHTML =
-        type === 'none' ? 'Pair wallet on same device' : 'Pair wallet on another device'
+                // iOS does not trigger deeplinks with `window.open(...)`. The only way is using a normal link. So we have to work around that.
+                const a = document.createElement('a')
+                a.setAttribute('href', link)
+                a.dispatchEvent(
+                  new MouseEvent('click', { view: window, bubbles: true, cancelable: true })
+                )
+
+                statusUpdateHandler(WalletType.IOS, this, true)
+              }
+            }))
+            .sort((a, b) => a.key.localeCompare(b.key))
+        },
+        {
+          title: 'Web Wallets',
+          type: WalletType.WEB,
+          wallets: [
+            ...(await Pairing.getWebList(pairingCode, statusUpdateHandler, network))
+          ].sort((a, b) => a.key.localeCompare(b.key))
+        }
+      ],
+      buttons: []
     }
+  }
 
-    if (mainText && walletList && switchButton && copyButton && qr && titleEl) {
-      mainText.style.display = 'none'
-      titleEl.style.textAlign = 'center'
-      walletList.style.display = 'none'
-      switchButton.style.display = 'initial'
-
-      switch (type) {
-        case 'ios':
-          walletList.style.display = 'initial'
-          break
-        case 'android':
-          walletList.style.display = 'initial'
-          break
-        case 'desktop':
-          walletList.style.display = 'initial'
-          titleEl.style.textAlign = 'left'
-          mainText.style.display = 'none'
-          switchButton.style.display = 'initial'
-          break
-        default:
-          if (!qrShown) {
-            const code = await serializer.serialize(await pairingPayload.p2pSyncCode())
-            const uri = getTzip10Link('tezos://', code)
-            const qrSVG = getQrData(uri, 'svg')
-            const qrString = qrSVG.replace('<svg', `<svg class="beacon-alert__image"`)
-            qr.insertAdjacentHTML('afterbegin', qrString)
-            if (copyButton) {
-              copyButton.addEventListener('click', fn)
-            }
-            if (qr) {
-              qr.addEventListener('click', fn)
-            }
-            qrShown = true
+  private static async getAndroidPairingAlert(
+    pairingCode: () => Promise<P2PPairingRequest>,
+    statusUpdateHandler: StatusUpdateHandler,
+    network: NetworkType
+  ): Promise<PairingAlertInfo> {
+    return {
+      walletLists: [
+        {
+          title: 'Web Wallets',
+          type: WalletType.WEB,
+          wallets: [
+            ...(await Pairing.getWebList(pairingCode, statusUpdateHandler, network))
+          ].sort((a, b) => a.key.localeCompare(b.key))
+        }
+      ],
+      buttons: [
+        {
+          title: 'Mobile Wallets',
+          text: 'Connect Wallet',
+          clickHandler: async (): Promise<void> => {
+            const code = await serializer.serialize(await pairingCode())
+            const qrLink = getTzip10Link('tezos://', code)
+            window.open(qrLink, '_blank')
+            statusUpdateHandler(WalletType.ANDROID)
           }
-
-          // QR code
-          mainText.style.display = 'initial'
-      }
+        }
+      ]
     }
   }
 
-  let showQr = false
+  private static async getWebList(
+    pairingCode: () => Promise<P2PPairingRequest>,
+    statusUpdateHandler: StatusUpdateHandler,
+    network: NetworkType
+  ): Promise<PairingAlertWallet[]> {
+    return webList
+      .map((app) => ({
+        key: app.key,
+        name: app.name,
+        shortName: app.shortName,
+        color: app.color,
+        logo: app.logo,
+        enabled: true,
+        clickHandler(): void {
+          const newTab = window.open('', '_blank')
 
-  const switchPlatform = (): void => {
-    showPlatform(showQr ? 'none' : platform)
-    showQr = !showQr
-  }
+          pairingCode()
+            .then((code) => serializer.serialize(code))
+            .then((code) => {
+              const link = getTzip10Link(app.links[network] ?? app.links[NetworkType.MAINNET], code)
 
-  switchPlatform()
+              if (newTab) {
+                newTab.location.href = link
+              } else {
+                window.open(link, '_blank')
+              }
 
-  {
-    const platformSwitch: HTMLElement | null = shadowRoot.getElementById(`beacon-switch`)
-    if (platformSwitch) {
-      platformSwitch.addEventListener('click', switchPlatform)
-    }
+              statusUpdateHandler(WalletType.WEB, this, true)
+            })
+            .catch((error) => {
+              // eslint-disable-next-line no-console
+              console.error(error)
+            })
+        }
+      }))
+      .sort((a, b) => a.key.localeCompare(b.key))
   }
 }

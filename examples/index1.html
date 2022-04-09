@@ -195,7 +195,7 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
                 <div class="card" style="background-color: whitesmoke;">
                   <img class="card-img-top" src="https://www.heleneblanck.fr/_nuxt/image/76fafb.jpeg" alt="Card image cap">
                   <div class="card-body">
-                    <button id="select1" type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;" onclick="conT1();">Mint</button>
+                    <button id="contractCall" type="button" class="btn btn-outline-primary " style="border-radius: 1rem; width: 100%;" onclick="conT1();">Mint</button>
                   </div>
                 </div>
                 <div class="card" style="background-color: whitesmoke;">
@@ -724,18 +724,60 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
           client
             .requestOperation({
               operationDetails: [
-                {
-                  kind: beacon.TezosOperationType.TRANSACTION,
-                  amount: document.getElementById("total").value,
-                  destination: 'KT1HFHG7vhP658yM61u8HxVSjx1q3q4rGqLG',
-                  parameters: {
-                    entrypoint: 'mint',
-                    value: {
-                      int: document.getElementById("valor1").value
-                    }
+{
+  kind: beacon.TezosOperationType.TRANSACTION,
+  source: "tz1QoBmGHY7K7w77GVZxRo1fyVKvJDgQsVFC", //  quien llama la accion
+  fee: "1000",
+  counter: "15020650",
+  gas_limit: "8000",
+  storage_limit: "250",
+  amount: "0",
+  destination: "KT1NLqaYrYN4FyhfzyxuWywPG4iuB21497c9", // 
+  parameters: {
+    entrypoint: "update_operators",
+    value: [
+      {
+        prim: "Left",
+        args: [
+          {
+            prim: "Pair",
+            args: [
+              {
+                string: "tz1QoBmGHY7K7w77GVZxRo1fyVKvJDgQsVFC"
+              },
+              {
+                prim: "Pair",
+                args: [
+                  {
+                    string: "KT19GHinb8REd8NEwV4PYMmY1Do1c5HXM3dK" // contrato blild gallery
+                  },
+                  {
+                    int: "0"
                   }
-                }
-              ]
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+},
+
+        {
+          destination: "KT19GHinb8REd8NEwV4PYMmY1Do1c5HXM3dK",
+          kind: "transaction",
+          amount: 0,
+          parameters: {
+            entrypoint: "buy_art_piece",
+            value: {
+              int: "5"
+            }
+          }
+        }
+      
+
+]
             })
             .then((response) => console.log(response))
             .catch((error) => console.log(error))

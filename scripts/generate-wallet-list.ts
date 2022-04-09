@@ -36,7 +36,9 @@ export const webList: WebApp[] = [
       [NetworkType.DELPHINET]: 'https://testnet.kukai.app',
       [NetworkType.EDONET]: 'https://edonet.kukai.app',
       [NetworkType.FLORENCENET]: 'https://florencenet.kukai.app',
-      [NetworkType.GRANADANET]: 'https://granadanet.kukai.app'
+      [NetworkType.GRANADANET]: 'https://granadanet.kukai.app',
+      [NetworkType.HANGZHOUNET]: 'https://hangzhounet.kukai.app',
+      [NetworkType.ITHACANET]: 'https://ithacanet.kukai.app'
     }
   }
 ]
@@ -69,6 +71,24 @@ export const iosList: App[] = [
     logo: 'ios-airgap.png',
     universalLink: 'https://wallet.airgap.it',
     deepLink: 'airgap-wallet://'
+  },
+  {
+    key: 'naan_ios',
+    name: 'Naan Wallet',
+    shortName: 'Naan',
+    color: 'rgb(129, 100, 100)',
+    logo: 'ios-naan.png',
+    universalLink: 'https://naanwallet.com',
+    deepLink: 'naan://'
+  },
+  {
+    key: 'autonomy-app',
+    name: 'Autonomy',
+    shortName: 'Autonomy',
+    color: '',
+    logo: 'ios-autonomy.png',
+    universalLink: 'https://au.bitmark.com/apps/tezos',
+    deepLink: 'autonomy-tezos://'
   }
   // {
   //   name: 'Galleon',

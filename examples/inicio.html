@@ -215,7 +215,7 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
                     <h4 style="color: #080808;">The Mint Pass gives you the chance to mint one of the 20 NFTs. You will exchange the Mint Pass, and don't have to pay anything extra.</h4></br>
                     <h4 style="color: #080808;">Cost: -20- Tezos.</h4>
                     <h4 style="color: #080808;">There will be only -1000- Mint Passes.</h4>
-                    <center><button type="button" class="btn btn-outline-success" style="border-radius: 5rem; font-size: 1.3rem; margin-top: 1rem">Get your mint pass</button></center>
+                    <center><button id="contractCall" type="button" class="btn btn-outline-success" style="border-radius: 5rem; font-size: 1.3rem; margin-top: 1rem">Get your mint pass</button></center>
                     <p style="color: #080808;margin-top: 2rem">There is a limit of 20 Mint Passes per wallet.</p>
 
                 </div>
@@ -688,8 +688,8 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
                     </div>
                     <div id="f4" class="collapse" aria-labelledby="faq4" data-parent="#accordion">
                       <div class="card-body" style="color: #080808;">
-                        <h4 id="fadeshow1">They are some of the top NFT artists. Their names will be revealed after the mint process is finalized.</h4>
-                        <p id="fadeshow2">They are some of the top NFT artists. Their names will be revealed after the mint process is finalized.</p>
+                        <h4 id="fadeshow1">To be determined.</h4>
+                        <p id="fadeshow2">To be determined.</p>
                     </div>
                     </div>
                   </div>
@@ -736,8 +736,8 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
                     </div>
                     <div id="f7" class="collapse" aria-labelledby="faq7" data-parent="#accordion">
                       <div class="card-body" style="color: #080808;">
-                        <h4 id="fadeshow1">To be determined.</h4>
-                        <p id="fadeshow2">To be determined.</p>
+                        <h4 id="fadeshow1">All the NFTs and the Mint Pass will be listed on www.objkt.com. Secondary sales will be done through that marketplace.</h4>
+                        <p id="fadeshow2">All the NFTs and the Mint Pass will be listed on www.objkt.com. Secondary sales will be done through that marketplace.</p>
                       </div>
                     </div>
                   </div>
@@ -810,8 +810,8 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
                     </div>
                     <div id="f13" class="collapse" aria-labelledby="faq13" data-parent="#accordion">
                       <div class="card-body" style="color: #080808;">
-                        <h4 id="fadeshow1">WGMI Studio. We are an NFT and Web 3 focussed indie studio.</h4>
-                        <p id="fadeshow2">WGMI Studio. We are an NFT and Web 3 focussed indie studio.</p>
+                        <h4 id="fadeshow1">WGMI Studio. We are an NFT and Web 3 focused indie studio.</h4>
+                        <p id="fadeshow2">WGMI Studio. We are an NFT and Web 3 focused indie studio.</p>
                       </div>
                     </div>
                   </div>
@@ -823,17 +823,18 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
     <section id="fadeshow1">
         <div  style="padding-bottom: 1.1rem; background-image: url('https://www.heleneblanck.fr/_nuxt/img/footer.ea32683.png?0.4712767864403582');">
             <div class="row" style="width: 100%;">
-                <div class="col-8"><ion-icon size="large" name="logo-twitter" style="color: #F6EFEE; margin-top: 2rem; margin-left: 3rem;"></ion-icon></div>
-                <div class="col"><p style="color: #F6EFEE;margin-top: 2rem ;text-align: right;">Powered by</p></div>
-                <div class="col"><img style="width:15%; margin-top: 2rem; text-align: right; " src="https://www.pngall.com/wp-content/uploads/10/Tezos-Crypto-Logo-PNG-Cutout.png" alt=""></div>
-                    
+                <div class="col-9"><ion-icon size="large" name="logo-twitter" style="color: #F6EFEE; margin-top: 2rem; margin-left: 3rem;"></ion-icon></div>
+                <div class="col-3 row">
+                  <div class="col"><p style="color: #F6EFEE;margin-top: 2rem ;">Powered by</p></div>
+                  <div class="col"><img style="width:45%; margin-top: 2rem; text-align: left;" src="https://www.pngall.com/wp-content/uploads/10/Tezos-Crypto-Logo-PNG-Cutout.png" alt=""></div>       
+                </div>
             </div>
 
             <div class="row" style="width: 100%;">
                 <div class="col-9"><p style="color: #F6EFEE; margin-top: 2rem; margin-left: 3rem;">2022, Blind Gallery by WGMI Studios</p></div>              
                 <div class="col-3 row">
-                    <div class="col"><center><p style="color: #F6EFEE;margin-top: 2rem ;">Privacy policy.</p></center></div>
-                    <div class="col"><p style="color: #F6EFEE;margin-top: 2rem ;text-align: right;">Terms of use.</p></div>
+                    <div class="col"><p style="color: #F6EFEE;margin-top: 2rem ;">Privacy policy.</p></div>
+                    <div class="col"><p style="color: #F6EFEE;margin-top: 2rem ;">Terms of use.</p></div>
                 </div> 
             </div>
                 
@@ -920,7 +921,7 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
             <br /><br />
             ---
             <br /><br />
-            <button id="contractCall">Contract Call</button>
+            <button >Contract Call</button>
             <br /><br />
             <textarea id="beacon-textbox"></textarea>
             <button id="deserializeData">Deserialize Data</button>
@@ -945,7 +946,7 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
         const client = new beacon.DAppClient({
           name: 'Example DApp', // Name of the DApp,
           disclaimerText: 'This is an optional <b>disclaimer</b>.'
-          // preferredNetwork: beacon.NetworkType.DELPHINET
+          //preferredNetwork: beacon.NetworkType.HANGZHOUNET
           // matrixNodes: ['test.papers.tech', 'test2.papers.tech', 'matrix.papers.tech']
           // matrixNodes: ['beacon-node-0.papers.tech:8448']
           // matrixNodes: ['matrix.papers.tech']
@@ -1020,7 +1021,7 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
         // Initiate a permission request
         const requestPermission = (callback) => {
           client
-            .requestPermissions({ network: { type: beacon.NetworkType.GRANADANET } })
+            .requestPermissions({ network: { type: beacon.NetworkType.HANGZHOUNET} })
             .then((permissions) => {
               console.log('permissions', permissions)
               if (callback) {
@@ -1199,12 +1200,12 @@ div#imagen:hover, div#imagen1:hover p#descripcion{
               operationDetails: [
                 {
                   kind: beacon.TezosOperationType.TRANSACTION,
-                  amount: document.getElementById("total").value,
-                  destination: 'KT1HFHG7vhP658yM61u8HxVSjx1q3q4rGqLG',
+                  amount: 15000000,
+                  destination: 'KT19GHinb8REd8NEwV4PYMmY1Do1c5HXM3dK',
                   parameters: {
-                    entrypoint: 'mint',
+                    entrypoint: 'buy_ticket',
                     value: {
-                      int: document.getElementById("valor1").value
+                      int: "1"
                     }
                   }
                 }

@@ -4,5 +4,7 @@ export enum NetworkType {
   EDONET = 'edonet',
   FLORENCENET = 'florencenet',
   GRANADANET = 'granadanet',
+  HANGZHOUNET = 'hangzhounet',
+  ITHACANET = 'ithacanet',
   CUSTOM = 'custom'
 }
